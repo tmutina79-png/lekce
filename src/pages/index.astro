@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 
 const docs = await getCollection('docs');
 const sorted = docs.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const base = import.meta.env.BASE_URL;
 ---
 
 <MainLayout title="Materiály">
@@ -12,7 +13,7 @@ const sorted = docs.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
   <ul class="list-none p-0 m-0 space-y-2">
     {sorted.map((doc) => (
       <li>
-        <a href={`/docs/${doc.id}`} class="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors">
+        <a href={`${base}docs/${doc.id}`} class="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors">
           {doc.data.title}
         </a>
       </li>
