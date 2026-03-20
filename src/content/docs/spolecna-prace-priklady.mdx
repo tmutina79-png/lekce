@@ -1,0 +1,360 @@
+---
+title: "Společná práce – 9 příkladů"
+description: "Procvičování úloh o společné práci – od jednoduchých po složitější. Pracovní list na jednu hodinu."
+order: 12
+---
+
+import SelfCheck from '../../components/SelfCheck.svelte';
+
+# Úlohy o společné práci – Pracovní list 📝
+
+> **Cíl hodiny:** Procvičit si řešení úloh o společné práci na 9 příkladech s postupně narůstající obtížností.
+
+---
+
+## 🟢 Jednoduché příklady (1–3)
+
+### Příklad 1: Dvě pumpy
+
+**Zadání:**  
+První pumpa naplní nádrž za **6 hodin**, druhá pumpa za **3 hodiny**. Za jak dlouho naplní nádrž obě pumpy společně?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Spočítej, kolik nádrže naplní každá pumpa za 1 hodinu, a sečti to.
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkon za 1 hodinu:**
+- První pumpa: $\frac{1}{6}$ nádrže
+- Druhá pumpa: $\frac{1}{3}$ nádrže
+
+**Společný výkon:**
+$$\frac{1}{6} + \frac{1}{3} = \frac{1}{6} + \frac{2}{6} = \frac{3}{6} = \frac{1}{2}$$
+
+**Čas společné práce:**
+$$t = \frac{1}{\frac{1}{2}} = 2 \text{ hodiny}$$
+
+**Odpověď: Obě pumpy naplní nádrž za 2 hodiny.**
+
+</details>
+
+---
+
+### Příklad 2: Dva malíři
+
+**Zadání:**  
+Pan Novák vymaluje byt za **8 hodin**, pan Svoboda za **8 hodin**. Za jak dlouho vymalují byt společně?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Oba mají stejný výkon – úloha se velmi zjednoduší!
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkon za 1 hodinu:**
+- Novák: $\frac{1}{8}$ bytu
+- Svoboda: $\frac{1}{8}$ bytu
+
+**Společný výkon:**
+$$\frac{1}{8} + \frac{1}{8} = \frac{2}{8} = \frac{1}{4}$$
+
+**Čas společné práce:**
+$$t = \frac{1}{\frac{1}{4}} = 4 \text{ hodiny}$$
+
+**Odpověď: Společně vymalují byt za 4 hodiny.**
+
+> 💡 **Poučení:** Když mají oba pracovníci stejný výkon, společná práce trvá přesně polovinu času!
+
+</details>
+
+---
+
+### Příklad 3: Zahradníci
+
+**Zadání:**  
+První zahradník poseká trávník za **2 hodiny**, druhý za **4 hodiny**. Jak dlouho budou sekat společně?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Převeď časy na výkony (část práce za hodinu) a sečti je.
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkon za 1 hodinu:**
+- První: $\frac{1}{2}$ trávníku
+- Druhý: $\frac{1}{4}$ trávníku
+
+**Společný výkon:**
+$$\frac{1}{2} + \frac{1}{4} = \frac{2}{4} + \frac{1}{4} = \frac{3}{4}$$
+
+**Čas společné práce:**
+$$t = \frac{1}{\frac{3}{4}} = \frac{4}{3} = 1\frac{1}{3} \text{ hodiny} = 1 \text{ h } 20 \text{ min}$$
+
+**Odpověď: Společně posekají trávník za 1 hodinu a 20 minut.**
+
+</details>
+
+<SelfCheck client:load id="spolecna-jednoduche" label="Rozumím základnímu postupu: výkon = 1/čas, společný výkon = součet, čas = 1/společný výkon." />
+
+---
+
+## 🟡 Střední obtížnost (4–6)
+
+### Příklad 4: Tři dělníci
+
+**Zadání:**  
+Adam vykope příkop za **6 hodin**, Bedřich za **4 hodiny** a Cyril za **3 hodiny**. Za jak dlouho vykopou příkop všichni tři společně?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Postup je stejný – sečti výkony všech tří dělníků.
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkon za 1 hodinu:**
+- Adam: $\frac{1}{6}$ příkopu
+- Bedřich: $\frac{1}{4}$ příkopu
+- Cyril: $\frac{1}{3}$ příkopu
+
+**Společný výkon (najdeme společného jmenovatele 12):**
+$$\frac{1}{6} + \frac{1}{4} + \frac{1}{3} = \frac{2}{12} + \frac{3}{12} + \frac{4}{12} = \frac{9}{12} = \frac{3}{4}$$
+
+**Čas společné práce:**
+$$t = \frac{1}{\frac{3}{4}} = \frac{4}{3} = 1\frac{1}{3} \text{ hodiny} = 1 \text{ h } 20 \text{ min}$$
+
+**Odpověď: Všichni tři vykopou příkop za 1 hodinu a 20 minut.**
+
+</details>
+
+---
+
+### Příklad 5: Otec a syn
+
+**Zadání:**  
+Otec postaví plot za **10 hodin**, syn by ho postavil za **15 hodin**. Syn začal pracovat sám a po **3 hodinách** se přidal otec. Za jak dlouho bude plot hotový od chvíle, kdy začal syn?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Nejprve spočítej, kolik udělal syn za první 3 hodiny. Pak dopočítej, jak dlouho trvá zbytek práce oběma společně.
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkon za 1 hodinu:**
+- Otec: $\frac{1}{10}$ plotu
+- Syn: $\frac{1}{15}$ plotu
+
+**Syn pracoval 3 hodiny sám:**
+$$3 \times \frac{1}{15} = \frac{3}{15} = \frac{1}{5} \text{ plotu}$$
+
+**Zbývá udělat:**
+$$1 - \frac{1}{5} = \frac{4}{5} \text{ plotu}$$
+
+**Společný výkon:**
+$$\frac{1}{10} + \frac{1}{15} = \frac{3}{30} + \frac{2}{30} = \frac{5}{30} = \frac{1}{6}$$
+
+**Čas na dokončení zbytku:**
+$$t = \frac{\frac{4}{5}}{\frac{1}{6}} = \frac{4}{5} \times 6 = \frac{24}{5} = 4,8 \text{ hodiny} = 4 \text{ h } 48 \text{ min}$$
+
+**Celkový čas:**
+$$3 + 4,8 = 7,8 \text{ hodiny} = 7 \text{ h } 48 \text{ min}$$
+
+**Odpověď: Plot bude hotový za 7 hodin a 48 minut od začátku.**
+
+</details>
+
+---
+
+### Příklad 6: Práce se střídáním
+
+**Zadání:**  
+Jedna trubka napouští bazén za **8 hodin**, jiná ho vypouští za **12 hodin**. Bazén je prázdný a omylem jsou otevřeny obě trubky. Za jak dlouho bude bazén plný?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Pozor! Jedna trubka plní (+), druhá vypouští (−). Výkony se odečítají!
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkon za 1 hodinu:**
+- Napouštěcí trubka: $+\frac{1}{8}$ bazénu
+- Vypouštěcí trubka: $-\frac{1}{12}$ bazénu
+
+**Čistý výkon (co přibude za hodinu):**
+$$\frac{1}{8} - \frac{1}{12} = \frac{3}{24} - \frac{2}{24} = \frac{1}{24}$$
+
+**Čas naplnění:**
+$$t = \frac{1}{\frac{1}{24}} = 24 \text{ hodin}$$
+
+**Odpověď: Bazén se naplní za 24 hodin.**
+
+> 💡 **Poučení:** Když se práce navzájem ruší (plnění × vypouštění), výkony odečítáme!
+
+</details>
+
+<SelfCheck client:load id="spolecna-stredni" label="Umím řešit úlohy s více pracovníky, se zpožděným startem i s protichůdnými procesy." />
+
+---
+
+## 🔴 Složitější příklady (7–9)
+
+### Příklad 7: Neúplná informace
+
+**Zadání:**  
+Dva stroje zpracují zakázku společně za **12 hodin**. První stroj by to zvládl sám za **20 hodin**. Za jak dlouho by zakázku zpracoval druhý stroj sám?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Znáš společný výkon a výkon prvního stroje. Výkon druhého stroje dopočítáš odečtením.
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Společný výkon:**
+$$\frac{1}{12} \text{ zakázky za hodinu}$$
+
+**Výkon prvního stroje:**
+$$\frac{1}{20} \text{ zakázky za hodinu}$$
+
+**Výkon druhého stroje:**
+$$\frac{1}{12} - \frac{1}{20} = \frac{5}{60} - \frac{3}{60} = \frac{2}{60} = \frac{1}{30}$$
+
+**Čas pro druhý stroj samotný:**
+$$t = \frac{1}{\frac{1}{30}} = 30 \text{ hodin}$$
+
+**Odpověď: Druhý stroj by zakázku zpracoval sám za 30 hodin.**
+
+</details>
+
+---
+
+### Příklad 8: Tři fáze práce
+
+**Zadání:**  
+Na stavbě domu pracují 3 party. První parta postaví dům za **60 dní**, druhá za **40 dní**, třetí za **30 dní**.  
+- Prvních **10 dní** pracovala jen první parta.  
+- Dalších **8 dní** pracovaly první a druhá parta společně.  
+- Pak se přidala i třetí parta.  
+
+Za kolik dní od začátku bude dům hotový?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Rozděl úlohu na 3 fáze a po každé fázi spočítej, kolik práce zbývá.
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkony za 1 den:**
+- První parta: $\frac{1}{60}$
+- Druhá parta: $\frac{1}{40}$
+- Třetí parta: $\frac{1}{30}$
+
+**Fáze 1 (10 dní, jen první parta):**
+$$10 \times \frac{1}{60} = \frac{10}{60} = \frac{1}{6} \text{ domu}$$
+
+**Fáze 2 (8 dní, první + druhá parta):**
+$$\text{Společný výkon: } \frac{1}{60} + \frac{1}{40} = \frac{2}{120} + \frac{3}{120} = \frac{5}{120} = \frac{1}{24}$$
+$$8 \times \frac{1}{24} = \frac{8}{24} = \frac{1}{3} \text{ domu}$$
+
+**Hotovo po 18 dnech:**
+$$\frac{1}{6} + \frac{1}{3} = \frac{1}{6} + \frac{2}{6} = \frac{3}{6} = \frac{1}{2} \text{ domu}$$
+
+**Zbývá:** $\frac{1}{2}$ domu
+
+**Fáze 3 (všechny 3 party):**
+$$\text{Společný výkon: } \frac{1}{60} + \frac{1}{40} + \frac{1}{30} = \frac{2}{120} + \frac{3}{120} + \frac{4}{120} = \frac{9}{120} = \frac{3}{40}$$
+
+**Čas na dokončení:**
+$$t = \frac{\frac{1}{2}}{\frac{3}{40}} = \frac{1}{2} \times \frac{40}{3} = \frac{40}{6} = \frac{20}{3} \approx 6{,}67 \text{ dní}$$
+
+**Celkový čas:**
+$$10 + 8 + 6{,}67 = 24{,}67 \text{ dní} \approx 25 \text{ dní}$$
+
+**Odpověď: Dům bude hotový za přibližně 25 dní.**
+
+</details>
+
+---
+
+### Příklad 9: Kombinovaná úloha
+
+**Zadání:**  
+Kohout naplní kádě za **20 minut**. Odtok vypustí plnou káď za **30 minut**. Káď je ze **čtvrtiny** plná a kohout i odtok jsou otevřené. Za jak dlouho bude káď úplně plná?
+
+<details>
+<summary>💡 Nápověda</summary>
+
+Spočítej čistý výkon (přítok minus odtok) a použij ho na zbývajících ¾ kádě.
+
+</details>
+
+<details>
+<summary>✅ Řešení</summary>
+
+**Výkon za 1 minutu:**
+- Kohout (přítok): $+\frac{1}{20}$ kádě
+- Odtok: $-\frac{1}{30}$ kádě
+
+**Čistý výkon:**
+$$\frac{1}{20} - \frac{1}{30} = \frac{3}{60} - \frac{2}{60} = \frac{1}{60}$$
+
+**Zbývá naplnit:**
+$$1 - \frac{1}{4} = \frac{3}{4} \text{ kádě}$$
+
+**Čas na doplnění:**
+$$t = \frac{\frac{3}{4}}{\frac{1}{60}} = \frac{3}{4} \times 60 = 45 \text{ minut}$$
+
+**Odpověď: Káď bude plná za 45 minut.**
+
+</details>
+
+<SelfCheck client:load id="spolecna-slozite" label="Zvládám i složité úlohy s více fázemi a kombinací plnění/vypouštění." />
+
+---
+
+## 📊 Shrnutí postupu
+
+| Krok | Co děláme | Vzorec |
+|:-----|:----------|:-------|
+| 1 | Výkon = část práce za jednotku času | $v = \frac{1}{t}$ |
+| 2 | Společný výkon = součet výkonů | $v_s = v_1 + v_2 + ...$ |
+| 3 | Pokud se práce ruší → odečítáme | $v_s = v_1 - v_2$ |
+| 4 | Čas = práce / výkon | $t = \frac{\text{práce}}{v_s}$ |
+
+---
+
+## ✏️ Domácí úkol
+
+Vymysli vlastní úlohu o společné práci ze svého života (např. úklid pokoje, mytí nádobí, příprava na párty...) a vyřeš ji!
+
