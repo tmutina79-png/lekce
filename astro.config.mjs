@@ -9,7 +9,7 @@ import rehypeKatex from 'rehype-katex';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tmutina79-png.github.io',
-  base: '/lekce',
+  base: process.env.CI ? '/lekce' : '/',
   output: 'static',
 
   integrations: [
