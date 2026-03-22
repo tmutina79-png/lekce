@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect width="760" height="400" rx="16" fill="#f0f4ff"/>
+
+  <text x="380" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#312e81">🤖 Co je umělá inteligence?</text>
+
+  <!-- Brain / chip center icon -->
+  <circle cx="380" cy="160" r="60" fill="#e0e7ff" stroke="#6366f1" stroke-width="2.5"/>
+  <text x="380" y="170" text-anchor="middle" font-size="48">🧠</text>
+  <text x="380" y="240" text-anchor="middle" font-size="13" font-weight="600" fill="#4338ca">AI = stroj, který se učí z dat</text>
+
+  <!-- Left side: inputs -->
+  <g transform="translate(60,80)">
+    <rect width="120" height="50" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="60" y="20" text-anchor="middle" font-size="22">👁️</text>
+    <text x="60" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Vidět</text>
+  </g>
+  <line x1="180" y1="105" x2="320" y2="145" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <g transform="translate(60,150)">
+    <rect width="120" height="50" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="60" y="20" text-anchor="middle" font-size="22">👂</text>
+    <text x="60" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Slyšet</text>
+  </g>
+  <line x1="180" y1="175" x2="320" y2="160" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <g transform="translate(60,220)">
+    <rect width="120" height="50" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="60" y="20" text-anchor="middle" font-size="22">📝</text>
+    <text x="60" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Číst text</text>
+  </g>
+  <line x1="180" y1="245" x2="320" y2="175" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- Right side: outputs -->
+  <g transform="translate(580,80)">
+    <rect width="120" height="50" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="60" y="20" text-anchor="middle" font-size="22">💬</text>
+    <text x="60" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Odpovídat</text>
+  </g>
+  <line x1="440" y1="145" x2="580" y2="105" stroke="#86efac" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <g transform="translate(580,150)">
+    <rect width="120" height="50" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="60" y="20" text-anchor="middle" font-size="22">🎨</text>
+    <text x="60" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Tvořit</text>
+  </g>
+  <line x1="440" y1="160" x2="580" y2="175" stroke="#86efac" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <g transform="translate(580,220)">
+    <rect width="120" height="50" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="60" y="20" text-anchor="middle" font-size="22">🚗</text>
+    <text x="60" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Rozhodovat</text>
+  </g>
+  <line x1="440" y1="175" x2="580" y2="245" stroke="#86efac" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- Bottom labels -->
+  <text x="120" y="310" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">VSTUPY</text>
+  <text x="640" y="310" text-anchor="middle" font-size="12" font-weight="700" fill="#22c55e">VÝSTUPY</text>
+
+  <!-- Bottom info boxes -->
+  <g transform="translate(130,330)">
+    <rect width="500" height="50" rx="12" fill="white" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="250" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#4338ca">💡 Lidský mozek: 86 miliard neuronů, 20 W</text>
+    <text x="250" y="40" text-anchor="middle" font-size="12" font-weight="600" fill="#6366f1">⚡ AI model: miliony parametrů, tisíce GPU, megawatty</text>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect width="760" height="340" rx="16" fill="#faf5ff"/>
+
+  <text x="380" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#581c87">Slabá AI → Silná AI → Superinteligence</text>
+
+  <!-- Scale bar -->
+  <defs>
+    <linearGradient id="aiGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="50%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#f87171"/>
+    </linearGradient>
+  </defs>
+  <rect x="80" y="60" width="600" height="14" rx="7" fill="#e2e8f0"/>
+  <rect x="80" y="60" width="200" height="14" rx="7" fill="url(#aiGrad)"/>
+  <!-- marker: we are here -->
+  <circle cx="200" cy="67" r="10" fill="#6366f1" stroke="white" stroke-width="2.5"/>
+  <text x="200" y="72" text-anchor="middle" font-size="9" font-weight="700" fill="white">📍</text>
+  <text x="200" y="96" text-anchor="middle" font-size="11" font-weight="600" fill="#6366f1">← jsme tady (2026)</text>
+
+  <!-- Slabá AI -->
+  <g transform="translate(40,120)">
+    <rect width="220" height="190" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+    <text x="110" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">🔹 Slabá AI</text>
+    <text x="110" y="48" text-anchor="middle" font-size="11" fill="#3b82f6">(Narrow AI)</text>
+    <line x1="20" y1="58" x2="200" y2="58" stroke="#93c5fd" stroke-width="1"/>
+    <text x="20" y="78" font-size="11" fill="#1e3a5f">• Umí jednu věc velmi dobře</text>
+    <text x="20" y="98" font-size="11" fill="#1e3a5f">• ChatGPT, Siri, Spotify</text>
+    <text x="20" y="118" font-size="11" fill="#1e3a5f">• Google Translate, Tesla</text>
+    <text x="20" y="138" font-size="11" fill="#1e3a5f">• Rozpoznání obličejů</text>
+    <rect x="40" y="150" width="140" height="28" rx="8" fill="#3b82f6"/>
+    <text x="110" y="169" text-anchor="middle" font-size="11" font-weight="700" fill="white">✅ EXISTUJE DNES</text>
+  </g>
+
+  <!-- Silná AI -->
+  <g transform="translate(275,120)">
+    <rect width="220" height="190" rx="14" fill="#f3e8ff" stroke="#c084fc" stroke-width="2"/>
+    <text x="110" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#6b21a8">🔸 Silná AI</text>
+    <text x="110" y="48" text-anchor="middle" font-size="11" fill="#9333ea">(General AI)</text>
+    <line x1="20" y1="58" x2="200" y2="58" stroke="#c084fc" stroke-width="1"/>
+    <text x="20" y="78" font-size="11" fill="#1e3a5f">• Uměla by vše jako člověk</text>
+    <text x="20" y="98" font-size="11" fill="#1e3a5f">• Přemýšlet, učit se cokoliv</text>
+    <text x="20" y="118" font-size="11" fill="#1e3a5f">• Být kreativní a adaptivní</text>
+    <text x="20" y="138" font-size="11" fill="#1e3a5f">• Odborníci se přou, jestli vznikne</text>
+    <rect x="40" y="150" width="140" height="28" rx="8" fill="#9333ea"/>
+    <text x="110" y="169" text-anchor="middle" font-size="11" font-weight="700" fill="white">❓ ZATÍM SCI-FI</text>
+  </g>
+
+  <!-- Superinteligence -->
+  <g transform="translate(510,120)">
+    <rect width="220" height="190" rx="14" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+    <text x="110" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">🔻 Superinteligence</text>
+    <text x="110" y="48" text-anchor="middle" font-size="11" fill="#dc2626">(Super AI)</text>
+    <line x1="20" y1="58" x2="200" y2="58" stroke="#fca5a5" stroke-width="1"/>
+    <text x="20" y="78" font-size="11" fill="#1e3a5f">• Chytřejší než všichni lidé</text>
+    <text x="20" y="98" font-size="11" fill="#1e3a5f">• Téma filmů a knih</text>
+    <text x="20" y="118" font-size="11" fill="#1e3a5f">• Terminátor, Matrix, Her</text>
+    <text x="20" y="138" font-size="11" fill="#1e3a5f">• Nikdo neví, jestli je možná</text>
+    <rect x="40" y="150" width="140" height="28" rx="8" fill="#dc2626"/>
+    <text x="110" y="169" text-anchor="middle" font-size="11" font-weight="700" fill="white">🚫 NEEXISTUJE</text>
+  </g>
+</svg>

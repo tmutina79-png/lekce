@@ -23,7 +23,38 @@ const colorMap: Record<string, { bg: string; border: string; text: string; badge
     .dash-grid { max-width: 100% !important; }
   </style>
 
-  <div class="dash-grid">
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- GATE MODAL – přístupový kód                        -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div id="gate-overlay" class="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center">
+      <div class="text-5xl mb-4">🔒</div>
+      <h2 class="text-xl font-bold text-gray-900 mb-2">Stránka se připravuje</h2>
+      <p class="text-gray-500 text-sm mb-6">
+        Dashboard studenta je momentálně ve vývoji.<br />
+        Pro přístup zadejte přístupový kód.
+      </p>
+      <div class="flex flex-col items-center gap-3">
+        <input
+          id="gate-input"
+          type="password"
+          placeholder="Zadejte kód…"
+          class="w-full max-w-[200px] text-center text-lg tracking-[0.3em] border-2 border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 transition"
+          autocomplete="off"
+        />
+        <button
+          id="gate-btn"
+          class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-6 py-2.5 rounded-xl transition shadow-sm cursor-pointer"
+        >
+          Odemknout
+        </button>
+        <p id="gate-error" class="text-red-500 text-xs font-semibold hidden">Nesprávný kód, zkuste to znovu.</p>
+      </div>
+      <a href="/" class="inline-block mt-6 text-xs text-gray-400 hover:text-gray-600 no-underline">← Zpět na hlavní portál</a>
+    </div>
+  </div>
+
+  <div id="dashboard-content" class="dash-grid hidden">
 
     <!-- ═══════════════════════════════════════════════════ -->
     <!-- HEADER                                             -->
@@ -176,4 +207,42 @@ const colorMap: Record<string, { bg: string; border: string; text: string; badge
     </section>
 
   </div>
+
+  <script>
+    const CODE = '112200';
+    const KEY  = 'dashboard_unlocked';
+
+    const overlay = document.getElementById('gate-overlay')!;
+    const content = document.getElementById('dashboard-content')!;
+    const input   = document.getElementById('gate-input') as HTMLInputElement;
+    const btn     = document.getElementById('gate-btn')!;
+    const error   = document.getElementById('gate-error')!;
+
+    function unlock() {
+      overlay.classList.add('hidden');
+      content.classList.remove('hidden');
+      sessionStorage.setItem(KEY, '1');
+    }
+
+    // Already unlocked this session?
+    if (sessionStorage.getItem(KEY) === '1') {
+      unlock();
+    }
+
+    function tryUnlock() {
+      if (input.value.trim() === CODE) {
+        unlock();
+      } else {
+        error.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') tryUnlock();
+      error.classList.add('hidden');
+    });
+  </script>
 </MainLayout>

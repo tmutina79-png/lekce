@@ -1,0 +1,649 @@
+---
+title: "AI a roboti: Jak si vyrobit chytrého pomocníka"
+description: "Workshop o umělé inteligenci – jak funguje AI, jak vytvořit vlastního chytrého pomocníka a jak využít AI pro výuku i běžný život."
+order: 11
+---
+
+import SelfCheck from '../../components/SelfCheck.svelte';
+import Quiz from '../../components/Quiz.svelte';
+import FlashCard from '../../components/FlashCard.svelte';
+import PracticeZone from '../../components/PracticeZone.svelte';
+
+# 🤖 AI a roboti: Jak si vyrobit chytrého pomocníka
+
+> **„Umělá inteligence je nový elektřina."** — Andrew Ng, profesor Stanford University
+
+Na tomto workshopu se dozvíš, jak funguje umělá inteligence, jak ji využít k řešení konkrétních úkolů a jak si vytvořit vlastního **chytrého pomocníka** pro výuku i běžný život. Pojďme na to!
+
+<figure class="my-6">
+  <img src="/img/ai-uvod.svg" alt="Co je umělá inteligence – schéma" class="w-full max-w-2xl mx-auto" />
+  <figcaption class="text-center text-sm text-primary-400 mt-2">Umělá inteligence mění svět kolem nás – a ty můžeš být u toho!</figcaption>
+</figure>
+
+---
+
+## 📖 Co se dnes naučíš
+
+| # | Téma | Co budeš umět |
+|:-:|:-----|:--------------|
+| 1 | Co je AI? | Vysvětlit, jak umělá inteligence funguje |
+| 2 | Typy AI | Rozlišit slabou a silnou AI |
+| 3 | Jak se AI učí | Pochopit princip strojového učení |
+| 4 | AI v praxi | Najít příklady AI v každodenním životě |
+| 5 | Tvůj AI pomocník | Vytvořit si vlastního chytrého pomocníka |
+| 6 | AI a etika | Přemýšlet o důsledcích AI pro společnost |
+
+---
+
+## 1️⃣ Co je umělá inteligence?
+
+**Umělá inteligence (AI)** je obor informatiky, který se zabývá vytvářením strojů a programů schopných provádět úkoly, které normálně vyžadují **lidskou inteligenci**.
+
+<figure class="my-6">
+  <img src="/img/ai-schopnosti.svg" alt="Co AI umí a co neumí" class="w-full max-w-2xl mx-auto" />
+  <figcaption class="text-center text-sm text-primary-400 mt-2">AI neznamená roboty z filmů – je to matematika, data a algoritmy.</figcaption>
+</figure>
+
+### Co AI umí?
+
+| Schopnost | Příklad |
+|:----------|:--------|
+| 👁️ **Vidět** | Rozpoznat obličeje na fotkách |
+| 👂 **Slyšet** | Převést řeč na text (Siri, Google Assistant) |
+| 💬 **Mluvit** | Generovat text a odpovídat na otázky (ChatGPT) |
+| 🎨 **Tvořit** | Vytvořit obrázek podle popisu (DALL-E, Midjourney) |
+| 🎮 **Hrát** | Porazit šampiony v šachách nebo Go |
+| 🚗 **Řídit** | Autonomní řízení vozidel (Tesla, Waymo) |
+
+### Co AI **neumí**?
+
+- ❌ **Skutečně rozumět** – AI nemá vědomí, jen zpracovává vzorce
+- ❌ **Cítit emoce** – může je simulovat, ale neprožívá je
+- ❌ **Mít vlastní cíle** – dělá jen to, k čemu je naprogramována
+- ❌ **Být kreativní z vlastní vůle** – kombinuje naučené vzory
+
+> 💡 **Klíčový rozdíl:** Lidský mozek má ~86 miliard neuronů a spotřebuje pouhých 20 W energie. Nejsilnější AI modely potřebují tisíce GPU a megawatty elektřiny!
+
+<SelfCheck client:load id="ai-co-je" label="Rozumím, co je umělá inteligence a co umí vs. neumí." />
+
+---
+
+## 2️⃣ Slabá vs. silná AI
+
+Rozlišujeme dva základní typy umělé inteligence:
+
+### 🔹 Slabá AI (Narrow AI) — to, co máme dnes
+
+Umí **jednu konkrétní věc** velmi dobře:
+
+| Příklad | Co dělá |
+|:--------|:--------|
+| **ChatGPT** | Generuje text a odpovídá na otázky |
+| **Spotify** | Doporučuje hudbu na základě tvého vkusu |
+| **Google Translate** | Překládá mezi jazyky |
+| **Autopilot Tesly** | Pomáhá řídit auto |
+| **DeepL** | Překládá texty s vysokou kvalitou |
+| **Shazam** | Rozpozná píseň podle úryvku |
+
+### 🔸 Silná AI (General AI) — zatím sci-fi
+
+Hypotetická AI, která by dokázala **všechno jako člověk** — přemýšlet, učit se cokoliv nového, být kreativní. Zatím **neexistuje** a odborníci se přou, jestli vůbec vznikne.
+
+### 🔻 Superinteligence — za horizontem
+
+Teoretická AI **chytřejší než všichni lidé dohromady**. Téma filmů a knih, nikoli reality.
+
+<figure class="my-6">
+  <img src="/img/ai-typy.svg" alt="Slabá AI vs. silná AI vs. superinteligence" class="w-full max-w-2xl mx-auto" />
+  <figcaption class="text-center text-sm text-primary-400 mt-2">Od kalkulačky po superinteligenci – kde se dnes nacházíme?</figcaption>
+</figure>
+
+<SelfCheck client:load id="ai-typy" label="Umím rozlišit slabou a silnou AI a vím, kde se dnes nacházíme." />
+
+---
+
+## 3️⃣ Jak se AI učí? Strojové učení
+
+AI se neučí jako člověk ve škole. Místo toho používá **strojové učení (Machine Learning)** — učí se z obrovského množství dat.
+
+### 🧠 Princip v 5 krocích
+
+```
+1. 📦 SBĚR DAT       → Sesbíráme tisíce příkladů (fotky koček, texty, hudba...)
+2. 🏷️ OZNAČENÍ       → Řekneme AI, co je na obrázku ("tohle je kočka")
+3. 🔄 TRÉNINK        → AI hledá vzorce a pravidla v datech
+4. 🧪 TESTOVÁNÍ      → Ověříme, jestli AI správně rozpoznává nové příklady
+5. 🚀 NASAZENÍ       → AI je připravena fungovat v reálném světě
+```
+
+### Analogie: AI jako malé dítě
+
+Představ si, jak se učí malé dítě rozpoznávat zvířata:
+1. Maminka ukáže obrázek a řekne: *„To je kočka"* 🐱
+2. Dítě vidí dalších 100 koček — různé barvy, velikosti, pozice
+3. Dítě si **vytvoří mentální model** — čtyři nohy, ocas, kníry…
+4. Když vidí novou kočku, dokáže ji poznat ✅
+5. Ale pejska s kočkou nezamění ❌
+
+**AI funguje stejně, jen místo 100 obrázků potřebuje miliony!**
+
+<figure class="my-6">
+  <img src="/img/ai-strojove-uceni.svg" alt="Jak se AI učí – strojové učení v 5 krocích" class="w-full max-w-2xl mx-auto" />
+  <figcaption class="text-center text-sm text-primary-400 mt-2">Neuronové sítě jsou inspirovány strukturou lidského mozku.</figcaption>
+</figure>
+
+### Typy strojového učení
+
+| Typ | Jak funguje | Příklad |
+|:----|:-----------|:--------|
+| **S učitelem** | AI dostane data s odpověďmi | Rozpoznávání spamu v e-mailu |
+| **Bez učitele** | AI hledá vzorce sama | Seskupování zákazníků podle chování |
+| **Posilované učení** | AI se učí pokus-omyl s odměnami | AlphaGo hraje Go |
+
+<SelfCheck client:load id="ai-uceni" label="Chápu princip strojového učení a umím ho vysvětlit na příkladu." />
+
+---
+
+## 4️⃣ AI kolem nás – příklady z každodenního života
+
+AI už dnes používáš, i když si to možná neuvědomuješ!
+
+### 📱 V telefonu
+
+| Funkce | AI za ní |
+|:-------|:---------|
+| **Face ID / odemknutí obličejem** | Rozpoznávání obličejů |
+| **Automatické opravy textu** | Jazykový model |
+| **Siri / Google Assistant** | Rozpoznávání řeči + generování odpovědí |
+| **Doporučené fotky** | Rozpoznávání objektů a scén |
+| **Filtr na Instagramu** | Detekce obličeje v reálném čase |
+
+### 🏠 Doma
+
+| Funkce | AI za ní |
+|:-------|:---------|
+| **Netflix / YouTube doporučení** | Systém doporučování |
+| **Alexa / Google Home** | Hlasový asistent |
+| **Robotický vysavač** | Navigace a mapování prostoru |
+| **Spam filtr v e-mailu** | Klasifikace textu |
+
+### 🏫 Ve škole
+
+| Funkce | AI za ní |
+|:-------|:---------|
+| **Google Translate / DeepL** | Strojový překlad |
+| **Grammarly** | Kontrola gramatiky a stylu |
+| **ChatGPT** | Vysvětlení učiva, generování příkladů |
+| **Wolfram Alpha** | Řešení matematických úloh |
+| **Quizlet AI** | Generování kartičkových otázek |
+
+### 🎬 Video: Jak funguje AI v každodenním životě
+
+<div class="my-6 rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto">
+  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
+    <iframe 
+      src="https://www.youtube.com/embed/ad79nYk2keg" 
+      title="How AI Works" 
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+> 🤔 **Úkol k zamyšlení:** Zkus během jednoho dne sledovat, kolikrát použiješ něco, co je poháněno umělou inteligencí. Budeš překvapen/a!
+
+<SelfCheck client:load id="ai-kolem-nas" label="Dokážu najít alespoň 5 příkladů AI v mém každodenním životě." />
+
+---
+
+## 5️⃣ Tvoříme AI pomocníka! 🛠️
+
+Teď přichází ta nejzajímavější část — vytvoříme si **vlastního chytrého pomocníka** pro přípravu do školy!
+
+### Co budeme potřebovat?
+
+- **ChatGPT** (chat.openai.com) — zdarma
+- **Nebo Claude** (claude.ai) — zdarma
+- **Nebo Gemini** (gemini.google.com) — zdarma
+
+### 🎯 Krok 1: Definuj svého pomocníka
+
+Prvním krokem je říct AI, **kdo má být**. Tomu se říká **systémový prompt** (instrukce):
+
+```text
+Jsi můj studijní pomocník pro gymnázium. Pomáháš mi s přípravou 
+na testy a vysvětlováním učiva. Komunikuješ česky, jednoduše 
+a srozumitelně. Když něco vysvětluješ, používáš příklady 
+z každodenního života. Na konci každého vysvětlení přidáš 
+3 kontrolní otázky.
+```
+
+### 🎯 Krok 2: Nauč ho svůj předmět
+
+Pomocníkovi můžeš zadat kontext – například učivo, které probíráš:
+
+```text
+Právě probíráme v matematice ODMOCNINY. Potřebuji:
+1. Vysvětlení co je odmocnina (jednoduše, s příklady)
+2. 5 příkladů na procvičení (od lehkých po těžké)
+3. 3 chytáky, na které si mám dát pozor u testu
+```
+
+### 🎯 Krok 3: Přidej superschopnosti
+
+Zkus tyto **pokročilé prompty**:
+
+| Prompt | Co dostaneš |
+|:-------|:-----------|
+| *„Vysvětli mi to, jako bych měl/a 10 let"* | Jednoduché vysvětlení |
+| *„Vytvoř mi test z tohoto učiva (10 otázek ABCD)"* | Testové otázky |
+| *„Dej mi mnemotechnickou pomůcku"* | Snadno zapamatovatelný trik |
+| *„Jaké chyby dělají studenti nejčastěji?"* | Prevence chyb |
+| *„Vytvoř mi kartičky na opakování"* | Flashcards |
+| *„Porovnej [téma A] a [téma B] v tabulce"* | Přehledné srovnání |
+
+### 🎬 Video: Jak psát dobré prompty
+
+<div class="my-6 rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto">
+  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
+    <iframe 
+      src="https://www.youtube.com/embed/jC4v5AS4RIM" 
+      title="How to use ChatGPT" 
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+### 🎯 Krok 4: Praktická ukázka – prompt pro přípravu na test
+
+```text
+Připrav mi přípravu na test z MATEMATIKY na téma FUNKCE:
+
+1. ✅ Shrň klíčové pojmy (definice, definiční obor, obor hodnot, 
+   rostoucí/klesající funkce)
+2. 📝 Vytvoř 5 příkladů s řešením (seřazených od lehkých po těžké)
+3. ⚠️ Uveď 3 nejčastější chyby studentů
+4. 🧪 Vytvoř mini-test (5 otázek ABCD) s odpověďmi
+5. 🧠 Dej mi jeden tip, jak si učivo zapamatovat
+
+Odpovídej česky, stručně a přehledně. Používej emoji pro lepší 
+přehlednost.
+```
+
+> 💡 **Pro tip:** Čím **přesnější a podrobnější** je tvůj prompt, tím lepší odpověď dostaneš. Neboj se AI říct přesně, co chceš!
+
+<SelfCheck client:load id="ai-pomocnik" label="Vyzkoušel/a jsem si vytvořit vlastního AI studijního pomocníka." />
+
+---
+
+## 6️⃣ AI nástroje pro studenty – přehled
+
+### 📝 Pro psaní a texty
+
+| Nástroj | K čemu | Odkaz |
+|:--------|:-------|:------|
+| **ChatGPT** | Vysvětlení, texty, překlady | chat.openai.com |
+| **Claude** | Analýza, rozbory, vysvětlení | claude.ai |
+| **DeepL Write** | Zlepšení stylu textu | deepl.com/write |
+| **Grammarly** | Kontrola angličtiny | grammarly.com |
+
+### 🎨 Pro obrázky a prezentace
+
+| Nástroj | K čemu | Odkaz |
+|:--------|:-------|:------|
+| **Canva AI** | Prezentace s AI návrhy | canva.com |
+| **DALL-E** | Generování obrázků z textu | openai.com/dall-e |
+| **Remove.bg** | Odstranění pozadí z fotek | remove.bg |
+| **Gamma** | AI prezentace | gamma.app |
+
+### 🧮 Pro matematiku a vědu
+
+| Nástroj | K čemu | Odkaz |
+|:--------|:-------|:------|
+| **Wolfram Alpha** | Řešení rovnic a grafů | wolframalpha.com |
+| **Photomath** | Řešení příkladů z fotky | photomath.com |
+| **GeoGebra** | Interaktivní geometrie | geogebra.org |
+
+<SelfCheck client:load id="ai-nastroje" label="Znám alespoň 3 AI nástroje užitečné pro studium." />
+
+---
+
+## 7️⃣ Historie robotiky a AI – časová osa
+
+| Rok | Událost | 🔑 Význam |
+|:----|:--------|:----------|
+| **1943** | McCulloch & Pitts navrhují umělý neuron | Základ neuronových sítí |
+| **1950** | Alan Turing publikuje „Turingův test" | Jak poznat, zda stroj myslí? |
+| **1956** | Konference v Dartmouthu – zrození pojmu „AI" | Oficiální začátek oboru |
+| **1966** | ELIZA – první chatbot | Simulace rozhovoru s terapeutem |
+| **1997** | Deep Blue porazí Kasparova v šachách | AI vs. člověk v šachách |
+| **2011** | Siri od Apple | Hlasový asistent v telefonu |
+| **2014** | Alexa od Amazonu | Chytré domácí zařízení |
+| **2016** | AlphaGo porazí Lee Sedola v Go | AI zvládla intuitivní hru |
+| **2022** | ChatGPT od OpenAI | Revoluce v generativní AI |
+| **2023** | GPT-4, Claude, Gemini | Multimodální AI modely |
+| **2024–26** | AI agenti a asistenti | AI pomáhá v reálném čase |
+
+<figure class="my-6">
+  <img src="/img/ai-historie.svg" alt="Časová osa historie AI a robotiky" class="w-full max-w-2xl mx-auto" />
+  <figcaption class="text-center text-sm text-primary-400 mt-2">Od Turingova testu k ChatGPT — cesta AI trvala 70 let.</figcaption>
+</figure>
+
+> 🤖 **Věděl/a jsi?** Slovo **„robot"** vymyslel český spisovatel **Karel Čapek** ve hře R.U.R. (1920). Pochází z českého slova „robota" (nucená práce). Češi tedy stojí u samého zrodu pojmu!
+
+<SelfCheck client:load id="ai-historie" label="Znám klíčové milníky v historii AI a vím, odkud pochází slovo 'robot'." />
+
+---
+
+## 🤖 Představujeme: Robot NAO
+
+A teď si představíme **skutečného robota**, kterého si můžeš osahat na vlastní oči! **NAO** je malý humanoidní robot (58 cm) vyvinutý firmou SoftBank Robotics. Je to jeden z nejpoužívanějších vzdělávacích robotů na světě — používají ho školy, univerzity i výzkumná centra po celém světě včetně České republiky.
+
+<figure class="my-6">
+  <img src="/img/ai-nao-robot.svg" alt="Robot NAO – přehled schopností" class="w-full max-w-2xl mx-auto" />
+  <figcaption class="text-center text-sm text-primary-400 mt-2">NAO – humanoidní robot pro vzdělávání, výzkum a terapii.</figcaption>
+</figure>
+
+### 🎬 Video: NAO robot v akci
+
+<div class="my-6 rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto">
+  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden">
+    <iframe 
+      src="https://www.youtube.com/embed/2STTNYNF4lk" 
+      title="NAO robot – ukázka schopností" 
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+### 📋 Technické parametry NAO
+
+| Parametr | Hodnota |
+|:---------|:--------|
+| **Výška** | 58 cm |
+| **Hmotnost** | 5,4 kg |
+| **Stupně volnosti** | 25 (klouby, které se hýbou) |
+| **Kamery** | 2× HD kamera |
+| **Mikrofony** | 4× směrový mikrofon |
+| **Reproduktory** | 2× stereo reproduktor |
+| **Senzory** | Dotykové (hlava, ruce, nohy), gyroskop, akcelerometr |
+| **Operační systém** | NAOqi (Linux) |
+| **Programování** | Python, C++, Choregraphe (vizuální) |
+| **Konektivita** | WiFi + Ethernet |
+| **Baterie** | ~90 min aktivního provozu |
+
+### 🧠 Jak NAO „přemýšlí"?
+
+NAO funguje na stejném principu jako každá AI — má **senzory** (vstupy), **mozek** (zpracování) a **aktuátory** (výstupy):
+
+<figure class="my-6">
+  <img src="/img/ai-nao-mozek.svg" alt="Jak NAO přemýšlí – od senzorů k akci" class="w-full max-w-2xl mx-auto" />
+  <figcaption class="text-center text-sm text-primary-400 mt-2">Cyklus: senzory → zpracování AI → rozhodnutí → akce.</figcaption>
+</figure>
+
+### 🎮 Co všechno NAO umí?
+
+- 🚶 **Chodit a balancovat** — vstane i po pádu, jde po rovném i nerovném povrchu
+- 💃 **Tančit** — dokáže zatančit choreografii na hudbu (např. Gangnam Style, Macarena)
+- 🗣️ **Mluvit a rozumět** — rozpozná hlasové příkazy a odpovídá v několika jazycích
+- 👁️ **Vidět a rozpoznávat** — pozná obličeje, sleduje objekty (např. míček)
+- 🤝 **Reagovat na dotek** — dotykové senzory na hlavě, rukách a nohou
+- 🧮 **Učit matematiku** — dokáže žákům zadávat příklady a kontrolovat odpovědi
+- 📖 **Vyprávět příběhy** — předčítá a gestikuluje
+- ⚽ **Hrát fotbal** — v soutěži RoboCup hrají týmy NAO robotů proti sobě!
+
+### 💻 Jak se NAO programuje?
+
+NAO se dá programovat třemi způsoby:
+
+**1. Choregraphe** (pro začátečníky)
+- Vizuální programování — přetahuješ bloky myší
+- Můžeš simulovat pohyby na 3D modelu bez reálného robota
+- Ideální pro první kroky
+
+**2. Python** (pro pokročilé)
+```python
+# Příklad: NAO řekne "Ahoj" a zamává
+from naoqi import ALProxy
+
+tts = ALProxy("ALTextToSpeech", "nao.local", 9559)
+motion = ALProxy("ALMotion", "nao.local", 9559)
+
+tts.say("Ahoj, já jsem NAO!")
+motion.angleInterpolation("RShoulderPitch", -1.0, 1.0, True)
+```
+
+**3. C++** (pro experty)
+- Maximální výkon a kontrola
+- Používá se ve výzkumu a na soutěžích
+
+### 🌐 Více o NAO
+
+Chceš se dozvědět víc? Navštiv oficiální české stránky:
+- 🔗 [**robodroid.cz/nao**](https://www.robodroid.cz/index.php/nao) — český distributor NAO robotů
+
+<SelfCheck client:load id="ai-nao" label="Vím, co je robot NAO, co umí a jak se programuje." />
+
+---
+
+## 8️⃣ AI a etika – o čem přemýšlet
+
+S velkým výkonem přichází velká odpovědnost. AI přináší **důležité etické otázky**:
+
+### ✅ Přínosy AI
+
+- 🏥 **Lékařství** — AI pomáhá diagnostikovat nemoci dříve
+- 🌍 **Ekologie** — predikce klimatických změn
+- ♿ **Přístupnost** — hlasové ovládání pro handicapované
+- 📚 **Vzdělávání** — personalizovaná výuka
+
+### ⚠️ Rizika AI
+
+- 🎭 **Deepfakes** — falešná videa a zvuky, které vypadají reálně
+- 📰 **Dezinformace** — AI může generovat falešné zprávy
+- 👤 **Soukromí** — rozpoznávání obličejů bez souhlasu
+- 💼 **Pracovní místa** — některé profese může AI nahradit
+- 🎓 **Podvádění** — neetické použití AI ve škole
+
+### 🏫 AI ve škole – pravidla fair play
+
+| ✅ OK | ❌ NE |
+|:------|:------|
+| Použít AI pro **pochopení** učiva | Odevzdat AI text jako **vlastní práci** |
+| Nechat si **vysvětlit** postup řešení | Nechat AI **vyřešit** domácí úkol |
+| Používat AI k **procvičování** | Používat AI **u testu** bez povolení |
+| **Kontrolovat** výstupy AI | **Slepě věřit** všemu, co AI řekne |
+
+> ⚡ **Zlaté pravidlo:** AI je skvělý **učitel a pomocník**, ale nikdy by neměla nahradit tvé vlastní **myšlení a učení**. Používej ji jako kolo, ne jako taxi!
+
+<SelfCheck client:load id="ai-etika" label="Vím, jak používat AI eticky a zodpovědně ve škole." />
+
+---
+
+## 9️⃣ Praktická aktivita: AI Challenge
+
+Zkus tyto úkoly se svým AI pomocníkem a porovnej výsledky se spolužáky!
+
+### 🏆 Úkol 1: Vysvětlovač
+Zadej AI: *„Vysvětli Pythagorovu větu tak, aby ji pochopil pětiletý."*
+
+### 🏆 Úkol 2: Quizmaster
+Zadej AI: *„Vytvoř kvíz o České republice – 5 otázek se 4 možnostmi."*
+
+### 🏆 Úkol 3: Tvůrce příběhů
+Zadej AI: *„Napiš krátký příběh (100 slov), kde hlavní postava je robot, který se učí chodit do školy."*
+
+### 🏆 Úkol 4: Debugger
+Zadej AI tento kód a nech ho najít chybu:
+```python
+def soucet(a, b):
+    return a - b
+
+print(soucet(3, 5))  # Mělo by být 8, ale výsledek je -2
+```
+
+### 🏆 Úkol 5: Osobní tutor
+Zadej AI učivo, ve kterém si nejsi jistý/á, a nech si ho vysvětlit třemi různými způsoby.
+
+<SelfCheck client:load id="ai-challenge" label="Splnil/a jsem alespoň 3 z 5 AI challenge úkolů." />
+
+---
+
+## 📖 Slovník důležitých pojmů
+
+<div class="overflow-x-auto my-6">
+
+| Pojem | Anglicky | Definice |
+|:------|:---------|:---------|
+| **Umělá inteligence** | *Artificial Intelligence (AI)* | Obor vytvářející stroje schopné „inteligentního" chování |
+| **Strojové učení** | *Machine Learning* | Metoda, kdy se AI učí z dat místo explicitního programování |
+| **Neuronová síť** | *Neural Network* | Model inspirovaný mozkem – propojené uzly zpracovávají informace |
+| **Velký jazykový model** | *Large Language Model (LLM)* | AI trénovaná na obrovském množství textu (ChatGPT, Claude) |
+| **Prompt** | *Prompt* | Instrukce/otázka zadaná AI modelu |
+| **Trénování** | *Training* | Proces, kdy se AI učí z dat |
+| **Dataset** | *Dataset* | Soubor dat použitých pro trénování AI |
+| **Deepfake** | *Deepfake* | Falešný obraz/video/zvuk vytvořený AI |
+| **Generativní AI** | *Generative AI* | AI schopná vytvářet nový obsah (texty, obrázky, hudbu) |
+| **Chatbot** | *Chatbot* | Program simulující konverzaci s člověkem |
+| **Algoritmus** | *Algorithm* | Postup kroků pro vyřešení úlohy |
+| **Robot** | *Robot* | Stroj vykonávající úlohy autonomně (slovo z češtiny!) |
+
+</div>
+
+---
+
+## 🃏 Flashcards – opakování
+
+<FlashCard client:load cards={[
+  { question: "Co je umělá inteligence?", answer: "Obor informatiky vytvářející stroje schopné provádět úkoly vyžadující lidskou inteligenci." },
+  { question: "Jaký je rozdíl mezi slabou a silnou AI?", answer: "Slabá AI umí jednu konkrétní věc (ChatGPT, Siri). Silná AI by uměla všechno jako člověk – zatím neexistuje." },
+  { question: "Co je strojové učení?", answer: "Metoda, kdy se AI učí z velkého množství dat místo explicitního programování." },
+  { question: "Co je prompt?", answer: "Instrukce nebo otázka, kterou zadáš AI modelu. Čím přesnější prompt, tím lepší odpověď." },
+  { question: "Kdo vymyslel slovo 'robot'?", answer: "Karel Čapek ve hře R.U.R. (1920). Slovo pochází z českého 'robota'." },
+  { question: "Co je deepfake?", answer: "Falešný obraz, video nebo zvuk vytvořený pomocí AI, který vypadá realisticky." },
+  { question: "Co je neuronová síť?", answer: "Model inspirovaný lidským mozkem – propojené uzly (neurony) zpracovávají informace ve vrstvách." },
+  { question: "Jak eticky používat AI ve škole?", answer: "AI používej pro pochopení učiva a procvičování, nikdy neodevzdávej AI text jako vlastní práci." }
+]} />
+
+---
+
+## 🧩 Procvičování
+
+<PracticeZone client:load problems={[
+  { category: "Pojmy", question: "Vysvětli vlastními slovy, co je strojové učení.", answer: "AI se učí z velkého množství dat – hledá v nich vzorce a pravidla, místo aby byla naprogramována přímo." },
+  { category: "Příklad AI", question: "Uveď 3 příklady AI, které používáš denně.", answer: "Např.: Face ID v telefonu, doporučení na YouTube/TikTok, automatické opravy textu, Siri/Google Assistant." },
+  { category: "Etika", question: "Je v pořádku nechat ChatGPT napsat celý domácí úkol? Proč?", answer: "Ne – odevzdat AI text jako vlastní práci je podvod. AI je OK na pochopení učiva a procvičování." },
+  { category: "Historie", question: "V jakém roce a díle se poprvé objevilo slovo 'robot'?", answer: "V roce 1920 ve hře R.U.R. od Karla Čapka." },
+  { category: "Prompt", question: "Napiš prompt pro AI, aby ti vysvětlila fotosyntézu jednoduše.", answer: "Např.: 'Vysvětli fotosyntézu jednoduše pro žáka 7. třídy, použij přirovnání z kuchyně a na konci dej 3 otázky.'" },
+  { category: "Typy AI", question: "Je Siri příkladem slabé nebo silné AI?", answer: "Slabé AI – umí jen zpracovávat hlasové příkazy a odpovídat, neumí se naučit úplně nové dovednosti sama." },
+  { category: "Technologie", question: "Co je velký jazykový model (LLM)?", answer: "AI natrénovaná na obrovském množství textu, která umí generovat smysluplné odpovědi. Příklady: GPT-4, Claude, Gemini." }
+]} />
+
+---
+
+## ✅ Celkový self-check
+
+<SelfCheck client:load id="ai-celkovy" label="Workshop o AI mám za sebou – rozumím základům a vím, jak AI využít pro studium!" />
+
+---
+
+## 📝 Závěrečný kvíz
+
+<Quiz
+  client:load
+  questions={[
+    {
+      question: "Co je umělá inteligence?",
+      options: [
+        "Robot, který vypadá jako člověk",
+        "Obor informatiky vytvářející stroje schopné inteligentního chování",
+        "Počítačový virus",
+        "Sociální síť"
+      ],
+      correct: 1,
+      explanation: "AI je obor informatiky, ne konkrétní robot ani program."
+    },
+    {
+      question: "Který z těchto nástrojů je příkladem slabé AI?",
+      options: [
+        "Superinteligence z filmů",
+        "Terminátor",
+        "ChatGPT",
+        "Silná AI z budoucnosti"
+      ],
+      correct: 2,
+      explanation: "ChatGPT je slabá (úzká) AI – umí velmi dobře jednu věc: generovat text."
+    },
+    {
+      question: "Kdo vymyslel slovo 'robot'?",
+      options: [
+        "Isaac Asimov",
+        "Alan Turing",
+        "Elon Musk",
+        "Karel Čapek"
+      ],
+      correct: 3,
+      explanation: "Karel Čapek použil slovo 'robot' poprvé ve hře R.U.R. (1920)."
+    },
+    {
+      question: "Co je prompt?",
+      options: [
+        "Typ neuronové sítě",
+        "Instrukce nebo otázka zadaná AI",
+        "Programovací jazyk",
+        "Název AI modelu"
+      ],
+      correct: 1,
+      explanation: "Prompt je vstupní instrukce, kterou zadáváme AI modelu."
+    },
+    {
+      question: "Jak se AI učí rozpoznávat kočky na fotkách?",
+      options: [
+        "Programátor napíše pravidla, jak kočka vypadá",
+        "AI se podívá na jednu fotku kočky a hned to umí",
+        "AI se učí z tisíců/milionů označených fotek",
+        "AI to neumí"
+      ],
+      correct: 2,
+      explanation: "Strojové učení vyžaduje obrovské množství trénovacích dat."
+    },
+    {
+      question: "Je eticky v pořádku odevzdat text napsaný AI jako vlastní práci?",
+      options: [
+        "Ano, pokud je text dobrý",
+        "Ano, AI to napsala za mě",
+        "Ne, je to podvod",
+        "Záleží na předmětu"
+      ],
+      correct: 2,
+      explanation: "Odevzdat AI text jako vlastní je akademický podvod. AI je pomocník, ne náhrada."
+    },
+    {
+      question: "Co je deepfake?",
+      options: [
+        "Hluboké učení",
+        "Falešný obraz/video/zvuk vytvořený AI",
+        "Typ počítačového viru",
+        "Sociální síť"
+      ],
+      correct: 1,
+      explanation: "Deepfake je realisticky vypadající falešný obsah vytvořený pomocí AI."
+    },
+    {
+      question: "Kolik neuronů má přibližně lidský mozek?",
+      options: [
+        "1 milion",
+        "86 miliard",
+        "1 miliarda",
+        "10 000"
+      ],
+      correct: 1,
+      explanation: "Lidský mozek má přibližně 86 miliard neuronů a spotřebuje jen ~20 W."
+    }
+  ]}
+/>

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="'Segoe UI',system-ui,sans-serif">
+  <rect width="760" height="420" rx="16" fill="#eff6ff"/>
+
+  <text x="380" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a5f">🕰️ Historie AI a robotiky</text>
+
+  <!-- Timeline line -->
+  <line x1="80" y1="70" x2="680" y2="70" stroke="#93c5fd" stroke-width="3"/>
+
+  <!-- 1950 -->
+  <circle cx="120" cy="70" r="8" fill="#3b82f6"/>
+  <text x="120" y="60" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">1950</text>
+  <g transform="translate(70,85)">
+    <rect width="100" height="55" rx="8" fill="white" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="50" y="18" text-anchor="middle" font-size="18">🧑‍💻</text>
+    <text x="50" y="34" text-anchor="middle" font-size="8" font-weight="600" fill="#1e3a5f">Turingův test</text>
+    <text x="50" y="46" text-anchor="middle" font-size="7" fill="#64748b">Myslí stroj?</text>
+  </g>
+
+  <!-- 1956 -->
+  <circle cx="200" cy="70" r="8" fill="#3b82f6"/>
+  <text x="200" y="60" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">1956</text>
+  <g transform="translate(150,85)">
+    <rect width="100" height="55" rx="8" fill="white" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="50" y="18" text-anchor="middle" font-size="18">🎓</text>
+    <text x="50" y="34" text-anchor="middle" font-size="8" font-weight="600" fill="#1e3a5f">Pojem "AI"</text>
+    <text x="50" y="46" text-anchor="middle" font-size="7" fill="#64748b">Dartmouth</text>
+  </g>
+
+  <!-- 1966 -->
+  <circle cx="280" cy="70" r="8" fill="#3b82f6"/>
+  <text x="280" y="60" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">1966</text>
+  <g transform="translate(230,85)">
+    <rect width="100" height="55" rx="8" fill="white" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="50" y="18" text-anchor="middle" font-size="18">💬</text>
+    <text x="50" y="34" text-anchor="middle" font-size="8" font-weight="600" fill="#1e3a5f">ELIZA</text>
+    <text x="50" y="46" text-anchor="middle" font-size="7" fill="#64748b">První chatbot</text>
+  </g>
+
+  <!-- 1997 -->
+  <circle cx="380" cy="70" r="8" fill="#3b82f6"/>
+  <text x="380" y="60" text-anchor="middle" font-size="9" font-weight="700" fill="#1e40af">1997</text>
+  <g transform="translate(330,85)">
+    <rect width="100" height="55" rx="8" fill="white" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="50" y="18" text-anchor="middle" font-size="18">♟️</text>
+    <text x="50" y="34" text-anchor="middle" font-size="8" font-weight="600" fill="#1e3a5f">Deep Blue</text>
+    <text x="50" y="46" text-anchor="middle" font-size="7" fill="#64748b">Porazí Kasparova</text>
+  </g>
+
+  <!-- 2016 -->
+  <circle cx="480" cy="70" r="8" fill="#8b5cf6"/>
+  <text x="480" y="60" text-anchor="middle" font-size="9" font-weight="700" fill="#6d28d9">2016</text>
+  <g transform="translate(430,85)">
+    <rect width="100" height="55" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1"/>
+    <text x="50" y="18" text-anchor="middle" font-size="18">⚫</text>
+    <text x="50" y="34" text-anchor="middle" font-size="8" font-weight="600" fill="#5b21b6">AlphaGo</text>
+    <text x="50" y="46" text-anchor="middle" font-size="7" fill="#64748b">Porazí Lee Sedola</text>
+  </g>
+
+  <!-- 2022 -->
+  <circle cx="580" cy="70" r="8" fill="#ec4899"/>
+  <text x="580" y="60" text-anchor="middle" font-size="9" font-weight="700" fill="#be185d">2022</text>
+  <g transform="translate(530,85)">
+    <rect width="100" height="55" rx="8" fill="#fdf2f8" stroke="#f9a8d4" stroke-width="1"/>
+    <text x="50" y="18" text-anchor="middle" font-size="18">🤖</text>
+    <text x="50" y="34" text-anchor="middle" font-size="8" font-weight="600" fill="#be185d">ChatGPT</text>
+    <text x="50" y="46" text-anchor="middle" font-size="7" fill="#64748b">Revoluce AI</text>
+  </g>
+
+  <!-- 2026 -->
+  <circle cx="660" cy="70" r="10" fill="#ef4444" stroke="white" stroke-width="2"/>
+  <text x="660" y="60" text-anchor="middle" font-size="9" font-weight="700" fill="#dc2626">2026</text>
+  <g transform="translate(610,85)">
+    <rect width="100" height="55" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+    <text x="50" y="18" text-anchor="middle" font-size="18">🚀</text>
+    <text x="50" y="34" text-anchor="middle" font-size="8" font-weight="600" fill="#dc2626">AI agenti</text>
+    <text x="50" y="46" text-anchor="middle" font-size="7" fill="#64748b">Pomáhají v reálu</text>
+  </g>
+
+  <!-- Karel Čapek special box -->
+  <g transform="translate(80,180)">
+    <rect width="600" height="100" rx="14" fill="white" stroke="#6366f1" stroke-width="2"/>
+    <rect x="0" y="0" width="8" height="100" rx="4" fill="#6366f1"/>
+    
+    <text x="35" y="28" font-size="14" font-weight="700" fill="#312e81">🇨🇿 České spojení s robotiky!</text>
+    <text x="35" y="50" font-size="12" fill="#374151">Slovo <tspan font-weight="700" fill="#6366f1">"robot"</tspan> vymyslel <tspan font-weight="700">Karel Čapek</tspan> ve hře R.U.R. (1920).</text>
+    <text x="35" y="68" font-size="12" fill="#374151">Pochází z českého slova <tspan font-weight="700" fill="#6366f1">"robota"</tspan> (nucená práce).</text>
+    <text x="35" y="88" font-size="11" fill="#64748b">Češi stojí u samého zrodu pojmu, který dnes zná celý svět! 🌍</text>
+
+    <text x="550" y="65" text-anchor="middle" font-size="48">🤖</text>
+  </g>
+
+  <!-- Three types of ML -->
+  <text x="380" y="310" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a5f">3 typy strojového učení</text>
+
+  <g transform="translate(40,325)">
+    <rect width="210" height="70" rx="12" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="105" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">👨‍🏫 S učitelem</text>
+    <text x="105" y="40" text-anchor="middle" font-size="9" fill="#374151">AI dostane data s odpověďmi</text>
+    <text x="105" y="56" text-anchor="middle" font-size="9" fill="#64748b">Příklad: rozpoznání spamu</text>
+  </g>
+
+  <g transform="translate(275,325)">
+    <rect width="210" height="70" rx="12" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="1.5"/>
+    <text x="105" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#6b21a8">🔍 Bez učitele</text>
+    <text x="105" y="40" text-anchor="middle" font-size="9" fill="#374151">AI hledá vzorce sama</text>
+    <text x="105" y="56" text-anchor="middle" font-size="9" fill="#64748b">Příklad: seskupování zákazníků</text>
+  </g>
+
+  <g transform="translate(510,325)">
+    <rect width="210" height="70" rx="12" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="105" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">🎮 Posilované učení</text>
+    <text x="105" y="40" text-anchor="middle" font-size="9" fill="#374151">AI se učí pokus-omyl</text>
+    <text x="105" y="56" text-anchor="middle" font-size="9" fill="#64748b">Příklad: AlphaGo hraje Go</text>
+  </g>
+</svg>
