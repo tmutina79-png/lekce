@@ -40,6 +40,32 @@ body {
 .prose a { @apply text-accent underline hover:text-primary-500; }
 .prose hr { @apply border-primary-200 my-8; }
 
+/* ---------- Tables ---------- */
+.prose table {
+  @apply w-full mb-6 border-collapse;
+  table-layout: auto;
+}
+.prose th {
+  @apply bg-primary-100 text-primary-800 font-semibold text-left px-4 py-2 border border-primary-200;
+}
+.prose td {
+  @apply px-4 py-2 border border-primary-200 text-primary-800;
+}
+.prose tr:nth-child(even) {
+  @apply bg-primary-50;
+}
+/* Ensure last columns don't get squished */
+.prose th:last-child,
+.prose td:last-child {
+  width: auto;
+  min-width: 30%;
+}
+/* When there are only 2 columns, split more evenly */
+.prose th:first-child,
+.prose td:first-child {
+  white-space: nowrap;
+}
+
 /* KaTeX blocks */
 .prose .katex-display { @apply my-6 overflow-x-auto; }
 

@@ -23,6 +23,10 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex, rehypeBaseUrl],
   },
 
+  server: {
+    port: 8085,
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
