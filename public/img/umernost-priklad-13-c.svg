@@ -20,10 +20,10 @@
   <path class="grid" d="M60 70 H200"/>
   <path class="grid" d="M60 110 H300"/>
 
-  <!-- hyperbola y = 10/x, sampled polyline -->
-  <path class="curve" d="M110 50
-    C150 70, 180 85, 200 70
-    C225 85, 255 100, 300 110"/>
+  <!-- hyperbola (nepřímá úměrnost): strmý začátek u osy y, plynulý pokles -->
+  <path class="curve" d="M74 32
+    C76 40, 105 62, 200 70
+    C245 76, 275 96, 300 110"/>
 
   <!-- points (5,2) and (10,1) -->
   <circle class="pt" cx="200" cy="70" r="7"/>

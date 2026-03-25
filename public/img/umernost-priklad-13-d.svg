@@ -22,11 +22,11 @@
   <path class="grid" d="M60 110 H220"/>
   <path class="grid" d="M60 136 H300"/>
 
-  <!-- hyperbola y = 36/x (stylized curve) -->
-  <path class="curve" d="M110 32
-    C125 55, 135 68, 140 46
-    C165 78, 195 100, 220 110
-    C250 122, 275 132, 300 136"/>
+  <!-- hyperbola (nepřímá úměrnost): strmý začátek u osy y, plynulý pokles přes body -->
+  <path class="curve" d="M74 32
+    C75 38, 95 44, 140 46
+    C175 60, 200 92, 220 110
+    C250 126, 276 134, 300 136"/>
 
   <!-- points (3,12), (6,6), (9,4) mapped to our grid -->
   <circle class="pt" cx="140" cy="46" r="7"/>
