@@ -3,7 +3,7 @@
     <style>
       .axis{stroke:#0f172a;stroke-width:3;fill:none;stroke-linecap:round}
       .grid{stroke:#94a3b8;stroke-width:2;fill:none;opacity:.45}
-      .curve{stroke:#2563eb;stroke-width:5;fill:none;stroke-linecap:round}
+      .curve{stroke:#2563eb;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
       .pt{fill:#2563eb}
       .txt{font: 18px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:700}
       .lbl{font: 20px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:800}
@@ -22,9 +22,8 @@
   <path class="grid" d="M60 118 H220"/>
   <path class="grid" d="M60 142 H300"/>
 
-  <!-- hyperbola y = 36/x (nepřímá úměrnost), dopočtené mezibody pro hezký tvar -->
-  <!-- map: x in <0;9> => 60..300 (26.6667 px / 1), y in <0;13.333> => 190..30 (12 px / 1) -->
-  <path class="curve" d="M132 30 L140 46 L153.3 66.6 L166.7 82 L193.3 103.6 L220 118 L246.7 128.3 L273.3 136 L300 142"/>
+  <!-- hyperbola y = 36/x (nepřímá úměrnost), vykresleno přes dopočtené mezibody -->
+  <path class="curve" d="M140 46 L153.3 66.6 L166.7 82 L180 94 L193.3 103.6 L206.7 111.5 L220 118 L233.3 123.5 L246.7 128.3 L260 132.4 L273.3 136 L286.7 139.2 L300 142"/>
 
   <!-- points (3,12), (6,6), (9,4) mapped to our grid -->
   <circle class="pt" cx="140" cy="46" r="7"/>
