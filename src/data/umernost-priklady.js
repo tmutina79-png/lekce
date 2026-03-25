@@ -3,7 +3,7 @@ export const umernostPriklady = [
     id: 'soubor-9',
     title: 'Přímá úměrnost y = 60x (tabulka + graf)',
     assignment:
-      'Doplň tabulku hodnot pro y = 60x pro x ∈ {2, 4, 6, 8}. Poté načrtni graf (přímka prochází počátkem).',
+      'Je dána přímá úměrnost y = 60x, kde x ∈ {2, 4, 6, 8}. Sestavte její tabulku a sestrojte její graf.',
     hint:
       'Nejprve dopočítej y pro každé x. Do grafu stačí zakreslit 2–3 body a spojit přímkou.',
     steps: [
@@ -18,7 +18,7 @@ export const umernostPriklady = [
     id: 'soubor-10',
     title: 'Graf přímé úměrnosti y = 12x',
     assignment:
-      'Načrtni graf y = 12x pro x v intervalu ⟨0; 10⟩. Vyber si vhodné body tak, aby se dobře kreslily.',
+      'Nakreslete graf přímé úměrnosti y = 12x, kde proměnná x nabývá hodnot z intervalu ⟨0, 10⟩.',
     hint:
       'Zvol třeba x = 0, 1, 2, 5, 10. Přímka vždy prochází počátkem.',
     steps: [
@@ -48,9 +48,9 @@ export const umernostPriklady = [
     id: 'soubor-12',
     title: 'Nepřímá úměrnost y = k/x (tabulky + graf)',
     assignment:
-      `Sestav tabulku a načrtni graf nepřímé úměrnosti y = k/x pro:
-(a) k = 10, x ∈ {1, 2, 2.5, 4, 5}
-(b) k = 1,  x ∈ {0.2, 0.5, 1, 2, 4}`,
+      `Sestavte tabulku a sestrojte graf nepřímé úměrnosti y = k/x, je-li dán její koeficient k a množina D všech hodnot proměnné x:
+a) k = 10,  D = {1; 2; 2,5; 4; 5}
+b) k = 1,  D = {0,2; 0,5; 1; 2; 4}`,
     hint:
       'Počítej y = k ÷ x. U nepřímé úměrnosti je součin x · y stále stejný (= k).',
     steps: [
