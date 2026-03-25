@@ -267,16 +267,16 @@
 
   /* Jump link */
   .pdf-jump {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     align-items: baseline;
-    justify-content: space-between;
     gap: 8px;
-    padding: 12px 14px;
+    padding: 8px 16px;
     border: 1px solid var(--color-primary-200);
-    border-radius: 14px;
+    border-radius: 10px;
     background: var(--color-primary-50);
     margin: 12px 0 18px;
+    font-size: 14px;
   }
   .pdf-jump-link {
     font-weight: 800;
