@@ -218,7 +218,7 @@
 
     <div class="pdf-actions">
       <button type="button" class="pdf-link" onclick={selectAll}>☑️ Vybrat vše</button>
-      <button type="button" class="pdf-link" onclick={clearAll}>⬜ Zrušit výběr</button>
+      <button type="button" class="pdf-link" onclick={clearAll}>❌ Zrušit výběr</button>
     </div>
 
     <div class="pdf-list">
