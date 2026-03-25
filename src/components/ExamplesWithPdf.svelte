@@ -359,14 +359,17 @@
   .ex-details {
     margin-top: 10px;
     border: 1px solid var(--color-primary-200);
-    border-radius: 14px;
+    border-radius: 10px;
     overflow: hidden;
     background: #fff;
+    display: inline-block;
+    max-width: 80%;
   }
   .ex-summary {
     cursor: pointer;
-    padding: 10px 12px;
+    padding: 7px 12px;
     font-weight: 800;
+    font-size: 0.82rem;
     color: var(--color-primary-700);
     background: var(--color-primary-50);
     list-style: none;
