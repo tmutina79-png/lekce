@@ -160,7 +160,6 @@
 <div class="examples">
   <div class="pdf-jump">
     <a href="#pdf" class="pdf-jump-link">🖨️ Vygenerovat PDF s příklady ↓</a>
-    <span class="pdf-jump-sub">Vyber příklady a vytiskni si je</span>
   </div>
 
   {#each examples as ex, i}
