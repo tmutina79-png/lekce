@@ -16,22 +16,20 @@
 
   <!-- helper lines for x=3,6,9 and y=12,6,4 -->
   <path class="grid" d="M140 190 V46"/>
-  <path class="grid" d="M220 190 V110"/>
-  <path class="grid" d="M300 190 V136"/>
+  <path class="grid" d="M220 190 V118"/>
+  <path class="grid" d="M300 190 V142"/>
   <path class="grid" d="M60 46 H140"/>
-  <path class="grid" d="M60 110 H220"/>
-  <path class="grid" d="M60 136 H300"/>
+  <path class="grid" d="M60 118 H220"/>
+  <path class="grid" d="M60 142 H300"/>
 
-  <!-- hyperbola (nepřímá úměrnost): strmý začátek u osy y, plynulý pokles přes body -->
-  <path class="curve" d="M74 32
-    C75 38, 95 44, 140 46
-    C175 60, 200 92, 220 110
-    C250 126, 276 134, 300 136"/>
+  <!-- hyperbola y = 36/x (nepřímá úměrnost), dopočtené mezibody pro hezký tvar -->
+  <!-- map: x in <0;9> => 60..300 (26.6667 px / 1), y in <0;13.333> => 190..30 (12 px / 1) -->
+  <path class="curve" d="M132 30 L140 46 L153.3 66.6 L166.7 82 L193.3 103.6 L220 118 L246.7 128.3 L273.3 136 L300 142"/>
 
   <!-- points (3,12), (6,6), (9,4) mapped to our grid -->
   <circle class="pt" cx="140" cy="46" r="7"/>
-  <circle class="pt" cx="220" cy="110" r="7"/>
-  <circle class="pt" cx="300" cy="136" r="7"/>
+  <circle class="pt" cx="220" cy="118" r="7"/>
+  <circle class="pt" cx="300" cy="142" r="7"/>
 
   <!-- labels -->
   <text class="lbl" x="20" y="32">d)</text>
@@ -41,6 +39,6 @@
   <text class="txt" x="212" y="222">6</text>
   <text class="txt" x="292" y="222">9</text>
   <text class="txt" x="20" y="52">12</text>
-  <text class="txt" x="34" y="116">6</text>
-  <text class="txt" x="34" y="142">4</text>
+  <text class="txt" x="34" y="124">6</text>
+  <text class="txt" x="34" y="148">4</text>
 </svg>
