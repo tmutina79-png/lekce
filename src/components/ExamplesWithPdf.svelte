@@ -64,6 +64,15 @@
       .replaceAll('"', '&quot;')
       .replaceAll("'", '&#39;');
 
+    // Build absolute base URL so images load in the blank print window
+    const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+    const origin = window.location.origin;
+    const toAbsUrl = (src) => {
+      if (/^https?:\/\//.test(src)) return src;
+      // src starts with '/' – prepend origin + base
+      return origin + base + src;
+    };
+
     const docTitle = 'Úměrnost – Pracovní list';
     const singleClass = chosen.length === 1 ? 'single-problem' : '';
 
@@ -73,7 +82,7 @@
         <div class="img-grid">
           ${imgs.map((img) => `
             <figure class="img-fig">
-              <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt ?? '')}" />
+              <img src="${escapeHtml(toAbsUrl(img.src))}" alt="${escapeHtml(img.alt ?? '')}" />
               ${img.label ? `<figcaption>${escapeHtml(img.label)}</figcaption>` : ''}
             </figure>
           `).join('')}
