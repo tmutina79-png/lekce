@@ -63,13 +63,14 @@ export const umernostPriklady = [
   },
   {
     id: 'soubor-13',
-    title: 'Z grafu určete předpis (přímá / nepřímá úměrnost)',
-    assignment:
-      `Urči předpis přímé nebo nepřímé úměrnosti podle popisu grafu:
-(a) Přímka prochází (0;0) a bodem (5;1)
-(b) Přímka prochází (0;0) a bodem (9;45)
-(c) Hyperbola prochází body (5;2) a (10;1)
-(d) Hyperbola prochází body (3;12), (6;6), (9;4)`,
+    title: 'Z grafu zapište vzorec (přímá / nepřímá úměrnost)',
+    assignment: 'Přímou nebo nepřímou úměrnost z grafu zapište vzorcem:',
+    images: [
+      { label: 'a)', src: '/img/umernost-priklad-13-a.svg', alt: 'Graf a)' },
+      { label: 'b)', src: '/img/umernost-priklad-13-b.svg', alt: 'Graf b)' },
+      { label: 'c)', src: '/img/umernost-priklad-13-c.svg', alt: 'Graf c)' },
+      { label: 'd)', src: '/img/umernost-priklad-13-d.svg', alt: 'Graf d)' },
+    ],
     hint:
       'Přímá: y = kx, kde k = y/x. Nepřímá: y = k/x, kde k = x·y.',
     steps: [

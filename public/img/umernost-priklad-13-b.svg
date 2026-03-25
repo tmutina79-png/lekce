@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" role="img" aria-label="Graf b)" >
+  <defs>
+    <style>
+      .axis{stroke:#0f172a;stroke-width:3;fill:none;stroke-linecap:round}
+      .grid{stroke:#94a3b8;stroke-width:2;fill:none;opacity:.45}
+      .curve{stroke:#2563eb;stroke-width:5;fill:none;stroke-linecap:round}
+      .pt{fill:#2563eb}
+      .txt{font: 18px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:700}
+      .lbl{font: 20px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:800}
+    </style>
+  </defs>
+
+  <!-- Origin at (60,190) -->
+  <path class="axis" d="M60 190 H320"/>
+  <path class="axis" d="M60 190 V30"/>
+
+  <!-- helper lines for x=9 and y=45 -->
+  <path class="grid" d="M300 190 V46"/>
+  <path class="grid" d="M60 46 H300"/>
+
+  <!-- line through origin and (9,45) -->
+  <path class="curve" d="M60 190 L300 46"/>
+  <circle class="pt" cx="300" cy="46" r="7"/>
+
+  <!-- labels -->
+  <text class="lbl" x="20" y="32">b)</text>
+  <text class="txt" x="328" y="196">x</text>
+  <text class="txt" x="48" y="22">y</text>
+  <text class="txt" x="292" y="222">9</text>
+  <text class="txt" x="14" y="52">45</text>
+</svg>

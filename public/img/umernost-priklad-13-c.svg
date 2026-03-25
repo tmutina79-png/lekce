@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" role="img" aria-label="Graf c)" >
+  <defs>
+    <style>
+      .axis{stroke:#0f172a;stroke-width:3;fill:none;stroke-linecap:round}
+      .grid{stroke:#94a3b8;stroke-width:2;fill:none;opacity:.45}
+      .curve{stroke:#2563eb;stroke-width:5;fill:none;stroke-linecap:round}
+      .pt{fill:#2563eb}
+      .txt{font: 18px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:700}
+      .lbl{font: 20px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:800}
+    </style>
+  </defs>
+
+  <!-- Origin at (60,190) -->
+  <path class="axis" d="M60 190 H320"/>
+  <path class="axis" d="M60 190 V30"/>
+
+  <!-- helper lines for x=5,10 and y=2,1 -->
+  <path class="grid" d="M200 190 V70"/>
+  <path class="grid" d="M300 190 V110"/>
+  <path class="grid" d="M60 70 H200"/>
+  <path class="grid" d="M60 110 H300"/>
+
+  <!-- hyperbola y = 10/x, sampled polyline -->
+  <path class="curve" d="M110 50
+    C150 70, 180 85, 200 70
+    C225 85, 255 100, 300 110"/>
+
+  <!-- points (5,2) and (10,1) -->
+  <circle class="pt" cx="200" cy="70" r="7"/>
+  <circle class="pt" cx="300" cy="110" r="7"/>
+
+  <!-- labels -->
+  <text class="lbl" x="20" y="32">c)</text>
+  <text class="txt" x="328" y="196">x</text>
+  <text class="txt" x="48" y="22">y</text>
+  <text class="txt" x="192" y="222">5</text>
+  <text class="txt" x="286" y="222">10</text>
+  <text class="txt" x="34" y="76">2</text>
+  <text class="txt" x="34" y="116">1</text>
+</svg>

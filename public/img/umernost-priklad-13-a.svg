@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" role="img" aria-label="Graf a)" >
+  <defs>
+    <style>
+      .axis{stroke:#0f172a;stroke-width:3;fill:none;stroke-linecap:round}
+      .grid{stroke:#94a3b8;stroke-width:2;fill:none;opacity:.45}
+      .curve{stroke:#2563eb;stroke-width:5;fill:none;stroke-linecap:round}
+      .pt{fill:#2563eb}
+      .txt{font: 18px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:700}
+      .lbl{font: 20px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0f172a; font-weight:800}
+    </style>
+  </defs>
+
+  <!-- plot area margins -->
+  <!-- Origin at (60,190) -->
+  <path class="axis" d="M60 190 H320"/>
+  <path class="axis" d="M60 190 V30"/>
+
+  <!-- helper lines for x=5 and y=1 -->
+  <path class="grid" d="M280 190 V46"/>
+  <path class="grid" d="M60 46 H280"/>
+
+  <!-- line through origin and (5,1) -->
+  <path class="curve" d="M60 190 L280 46"/>
+  <circle class="pt" cx="280" cy="46" r="7"/>
+
+  <!-- labels -->
+  <text class="lbl" x="20" y="32">a)</text>
+  <text class="txt" x="328" y="196">x</text>
+  <text class="txt" x="48" y="22">y</text>
+  <text class="txt" x="270" y="222">5</text>
+  <text class="txt" x="28" y="52">1</text>
+</svg>

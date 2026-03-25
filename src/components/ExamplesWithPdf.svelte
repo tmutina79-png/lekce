@@ -1,6 +1,6 @@
 <script>
   /**
-   * examples: Array<{ id: string; title: string; assignment: string; hint?: string; steps?: string[] }>
+  * examples: Array<{ id: string; title: string; assignment: string; hint?: string; steps?: string[]; images?: Array<{ label?: string; src: string; alt?: string }> }>
    */
   let { examples = [], sheetTitle = 'Příklady k tisku (PDF)' } = $props();
 
@@ -67,11 +67,26 @@
 
     const docTitle = 'Úměrnost – pracovní list';
 
+    const imagesHtml = (imgs) => {
+      if (!imgs || imgs.length === 0) return '';
+      return `
+        <div class="img-grid">
+          ${imgs.map((img) => `
+            <figure class="img-item">
+              <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt ?? '')}" />
+              ${img.label ? `<figcaption>${escapeHtml(img.label)}</figcaption>` : ''}
+            </figure>
+          `).join('')}
+        </div>
+      `;
+    };
+
     const itemsHtml = chosen.map((e, i) => `
       <section class="item">
         <h2>${i + 1}. ${escapeHtml(e.title)}</h2>
         <div class="label">Zadání</div>
         <p>${escapeHtml(e.assignment).replaceAll('\n', '<br/>')}</p>
+        ${imagesHtml(e.images)}
       </section>
     `).join('\n');
 
@@ -91,6 +106,11 @@
   h2 { font-size: 14px; margin: 0 0 8px; }
   .label { font-size: 11px; font-weight: 700; color: #1e3a8a; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
   p { margin: 0; font-size: 12.5px; line-height: 1.45; }
+
+  .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .img-item { margin: 0; border: 1px solid #e2e8f0; border-radius: 10px; padding: 6px; }
+  .img-item img { width: 100%; height: auto; display: block; }
+  .img-item figcaption { font-size: 11px; color: #475569; margin-top: 4px; font-weight: 700; }
   .hintline { margin-top: 10px; font-size: 12px; color: #475569; }
   .line { display: block; border-bottom: 1px solid #e2e8f0; height: 18px; }
 </style>
@@ -138,6 +158,19 @@
         <div class="ex-label">📝 Zadání</div>
         <div class="ex-text">{ex.assignment}</div>
       </div>
+
+      {#if ex.images && ex.images.length}
+        <div class="img-grid">
+          {#each ex.images as img}
+            <figure class="img-item">
+              <img class="img" src={img.src} alt={img.alt ?? ''} loading="lazy" />
+              {#if img.label}
+                <figcaption class="img-cap">{img.label}</figcaption>
+              {/if}
+            </figure>
+          {/each}
+        </div>
+      {/if}
 
       {#if ex.hint}
         <details class="ex-details">
@@ -259,6 +292,34 @@
     background: var(--color-primary-50);
     border-radius: 14px;
     padding: 12px 12px;
+  }
+
+  .img-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 10px 0 0;
+  }
+
+  .img-item {
+    margin: 0;
+    border: 1px solid var(--color-primary-200);
+    border-radius: 14px;
+    background: #fff;
+    padding: 8px;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .img-cap {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--color-primary-700);
   }
   .ex-label {
     font-size: 12px;
