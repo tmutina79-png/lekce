@@ -86,14 +86,14 @@ const sidebarSections = [
               <button
                 class="sidebar-toggle flex items-center justify-between w-full text-xs font-semibold uppercase tracking-wider text-primary-400 mt-3 mb-1 px-3 py-1 rounded hover:bg-primary-100 transition-colors cursor-pointer"
                 data-section={idx}
-                aria-expanded="true"
+                aria-expanded="false"
               >
                 <span>{section.label}</span>
-                <svg class="toggle-arrow w-3.5 h-3.5 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <svg class="toggle-arrow w-3.5 h-3.5 transition-transform" style="transform:rotate(-90deg)" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                 </svg>
               </button>
-              <div class="sidebar-items" data-section-items={idx}>
+              <div class="sidebar-items" data-section-items={idx} style="display:none">
                 {section.items.map((l) => (
                   <a
                     href={`${base}docs/${l.slug}`}
