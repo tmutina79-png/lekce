@@ -146,12 +146,29 @@ const sidebarSections = [
         sidebar?.classList.toggle('w-full');
       });
 
-      /* Collapsible sidebar sections */
+      /* Collapsible sidebar sections — auto-expand section containing current page */
+      const currentPath = window.location.pathname;
       document.querySelectorAll('.sidebar-toggle').forEach((toggle) => {
+        const idx = toggle.getAttribute('data-section');
+        const items = document.querySelector(`[data-section-items="${idx}"]`);
+        if (!items) return;
+
+        // Check if any link inside this section matches the current page
+        const hasActive = Array.from(items.querySelectorAll('a')).some((a) => {
+          const href = a.getAttribute('href') || '';
+          // Match if currentPath starts with (or equals) the link href (strip trailing slash)
+          const normHref = href.replace(/\/$/, '');
+          const normPath = currentPath.replace(/\/$/, '');
+          return normPath === normHref || normPath.startsWith(normHref + '/');
+        });
+
+        if (hasActive) {
+          toggle.setAttribute('aria-expanded', 'true');
+          items.style.display = '';
+          toggle.querySelector('.toggle-arrow').style.transform = '';
+        }
+
         toggle.addEventListener('click', () => {
-          const idx = toggle.getAttribute('data-section');
-          const items = document.querySelector(`[data-section-items="${idx}"]`);
-          if (!items) return;
           const isOpen = toggle.getAttribute('aria-expanded') === 'true';
           toggle.setAttribute('aria-expanded', String(!isOpen));
           items.style.display = isOpen ? 'none' : '';
