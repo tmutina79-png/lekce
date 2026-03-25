@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225">
+  <defs>
+    <linearGradient id="vtBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pozadí -->
+  <rect width="400" height="225" fill="url(#vtBg)"/>
+
+  <!-- === Levá strana: Parabola (JE funkce) === -->
+  <!-- Osy -->
+  <line x1="40" y1="120" x2="180" y2="120" stroke="#475569" stroke-width="1.5"/>
+  <line x1="110" y1="45" x2="110" y2="185" stroke="#475569" stroke-width="1.5"/>
+  <!-- Šipky -->
+  <polygon points="180,120 174,117 174,123" fill="#475569"/>
+  <polygon points="110,45 107,51 113,51" fill="#475569"/>
+
+  <!-- Parabola -->
+  <path d="M50,55 Q80,180 110,185 Q140,180 170,55" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Svislá testovací přímka (čárkovaná) -->
+  <line x1="135" y1="42" x2="135" y2="188" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,4" opacity="0.8"/>
+  <!-- Průsečík (1 bod = OK) -->
+  <circle cx="135" cy="105" r="5" fill="#22c55e"/>
+  <circle cx="135" cy="105" r="2.5" fill="#fff"/>
+
+  <!-- Popisek -->
+  <text x="110" y="208" font-family="sans-serif" font-size="12" fill="#22c55e" text-anchor="middle" font-weight="bold">✓ Funkce</text>
+  <text x="110" y="38" font-family="sans-serif" font-size="10" fill="#93c5fd" text-anchor="middle">f(x) = x²</text>
+
+  <!-- === Pravá strana: Kružnice (NENÍ funkce) === -->
+  <!-- Osy -->
+  <line x1="220" y1="120" x2="370" y2="120" stroke="#475569" stroke-width="1.5"/>
+  <line x1="295" y1="45" x2="295" y2="185" stroke="#475569" stroke-width="1.5"/>
+  <polygon points="370,120 364,117 364,123" fill="#475569"/>
+  <polygon points="295,45 292,51 298,51" fill="#475569"/>
+
+  <!-- Kružnice -->
+  <circle cx="295" cy="115" r="55" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+
+  <!-- Svislá testovací přímka (čárkovaná) -->
+  <line x1="320" y1="42" x2="320" y2="188" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,4" opacity="0.8"/>
+  <!-- Průsečíky (2 body = špatně) -->
+  <circle cx="320" cy="73" r="5" fill="#ef4444"/>
+  <circle cx="320" cy="73" r="2.5" fill="#fff"/>
+  <circle cx="320" cy="157" r="5" fill="#ef4444"/>
+  <circle cx="320" cy="157" r="2.5" fill="#fff"/>
+
+  <!-- Spojnice průsečíků (zdůraznění) -->
+  <line x1="320" y1="80" x2="320" y2="150" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Popisek -->
+  <text x="295" y="208" font-family="sans-serif" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="bold">✗ Není funkce</text>
+  <text x="295" y="38" font-family="sans-serif" font-size="10" fill="#fca5a5" text-anchor="middle">x² + y² = r²</text>
+
+  <!-- Nadpis nahoře -->
+  <text x="200" y="20" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" text-anchor="middle" font-weight="bold">📏 Test svislou přímkou</text>
+
+  <!-- Video badge -->
+  <rect x="10" y="194" width="65" height="22" rx="5" fill="#3b82f6"/>
+  <polygon points="21,200 21,211 30,205.5" fill="#fff"/>
+  <text x="50" y="209" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">VIDEO</text>
+</svg>
