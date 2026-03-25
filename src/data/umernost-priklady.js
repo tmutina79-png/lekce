@@ -31,17 +31,17 @@ export const umernostPriklady = [
   },
   {
     id: 'soubor-11',
-    title: 'Koeficient přímé úměrnosti pro y = x a úhel přímky',
+    title: 'Koeficient přímé úměrnosti y = x (x > 0)',
     assignment:
-      'Urči koeficient přímé úměrnosti k ve vztahu y = kx, pokud platí y = x (pro x > 0). Načrtni graf a určete úhel přímky s kladným směrem osy x.',
+      'Určete koeficient přímé úměrnosti y = x, kde x > 0, a sestrojte její graf v kartézské soustavě souřadnic. Jaký úhel svírá tento graf s každou z os soustavy souřadnic?',
     hint:
-      'Porovnej y = x s y = kx. Úhel přímky souvisí se směrnicí k.',
+      'Porovnej y = x s obecným tvarem y = kx. Pro úhel platí tan(α) = k.',
     steps: [
-      'Porovnej tvar y = x s obecným tvarem y = kx.',
-      'Z toho urči k.',
-      'Načrtni graf: přímka přes (0;0) a (1;1).',
-      'Směrnice k = tan(α).',
-      'Vyvoď α (pro k = 1 je α = 45°).'
+      'Zapiš obecný tvar přímé úměrnosti: y = kx.',
+      'Porovnej y = kx a y = x ⇒ k = 1.',
+      'Sestroj graf: stačí dva body, např. (0;0) a (1;1), a spojit přímkou.',
+      'Úhel s osou x: tan(α) = k = 1 ⇒ α = 45°.',
+      'Úhel s osou y je 90° − 45° = 45°.'
     ],
   },
   {

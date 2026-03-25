@@ -6,10 +6,10 @@
 
   let selected = $state(new Set());
 
-  // per-example checklist state
-  let checks = $state(
+  // Per-example revealed step count (step-by-step disclosure)
+  let revealed = $state(
     Object.fromEntries(
-      examples.map((ex) => [ex.id, (ex.steps ?? []).map(() => false)])
+      examples.map((ex) => [ex.id, Math.min(1, (ex.steps ?? []).length)])
     )
   );
 
@@ -28,21 +28,24 @@
     selected = new Set();
   }
 
-  function doneCount(id) {
-    const arr = checks[id] ?? [];
-    return arr.filter(Boolean).length;
-  }
-
   function totalCount(id) {
-    const arr = checks[id] ?? [];
-    return arr.length;
+    return (examples.find((e) => e.id === id)?.steps ?? []).length;
   }
 
-  function toggleStep(id, idx) {
-    const arr = checks[id] ?? [];
-    const next = arr.slice();
-    next[idx] = !next[idx];
-    checks = { ...checks, [id]: next };
+  function revealedCount(id) {
+    return revealed[id] ?? 0;
+  }
+
+  function nextStep(id) {
+    const total = totalCount(id);
+    const current = revealedCount(id);
+    const next = Math.min(total, current + 1);
+    revealed = { ...revealed, [id]: next };
+  }
+
+  function resetSteps(id) {
+    const total = totalCount(id);
+    revealed = { ...revealed, [id]: Math.min(1, total) };
   }
 
   function openPrintableWindow(selectedIds) {
@@ -145,22 +148,32 @@
 
       {#if ex.steps && ex.steps.length}
         <details class="ex-details">
-          <summary class="ex-summary">📝 Postup řešení ({doneCount(ex.id)}/{totalCount(ex.id)} kroků)</summary>
+          <summary class="ex-summary">📝 Postup řešení ({revealedCount(ex.id)}/{totalCount(ex.id)} kroků)</summary>
+
           <ol class="steps">
-            {#each ex.steps as step, idx}
-              <li class="step">
-                <label class="step-label">
-                  <input
-                    class="step-check"
-                    type="checkbox"
-                    checked={(checks[ex.id] ?? [])[idx]}
-                    onchange={() => toggleStep(ex.id, idx)}
-                  />
-                  <span class="step-text">{step}</span>
-                </label>
-              </li>
+            {#each ex.steps.slice(0, revealedCount(ex.id)) as step}
+              <li class="step"><span class="step-text">{step}</span></li>
             {/each}
           </ol>
+
+          <div class="step-actions">
+            <button
+              type="button"
+              class="step-btn"
+              onclick={() => nextStep(ex.id)}
+              disabled={revealedCount(ex.id) >= totalCount(ex.id)}
+            >
+              ➕ Další krok
+            </button>
+            <button
+              type="button"
+              class="step-btn step-btn-secondary"
+              onclick={() => resetSteps(ex.id)}
+              disabled={revealedCount(ex.id) <= 1}
+            >
+              ↩︎ Zpět na 1. krok
+            </button>
+          </div>
         </details>
       {/if}
     </section>
@@ -290,9 +303,38 @@
     padding: 10px 14px 12px 30px;
   }
   .step { margin: 0 0 6px; }
-  .step-label { display: flex; gap: 10px; align-items: flex-start; }
-  .step-check { margin-top: 3px; }
   .step-text { color: var(--color-primary-900); line-height: 1.5; }
+
+  .step-actions {
+    display: flex;
+    gap: 10px;
+    padding: 0 12px 12px;
+    flex-wrap: wrap;
+  }
+
+  .step-btn {
+    border-radius: 12px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-primary-200);
+    background: #fff;
+    color: var(--color-primary-800);
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .step-btn:hover {
+    border-color: var(--color-primary-400);
+    background: var(--color-primary-50);
+  }
+
+  .step-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .step-btn-secondary {
+    color: var(--color-primary-700);
+  }
 
   .pdf-card {
     background: #fff;
