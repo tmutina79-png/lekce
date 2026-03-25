@@ -81,20 +81,29 @@ const sidebarSections = [
           <h2 class="text-xs font-semibold uppercase tracking-wider text-primary-400 mb-3">
             Lekce
           </h2>
-          {sidebarSections.map((section) => (
-            <div class="mb-4">
-              <h3 class="text-xs font-semibold uppercase tracking-wider text-primary-400 mt-3 mb-1 px-3">
-                {section.label}
-              </h3>
-              {section.items.map((l) => (
-                <a
-                  href={`${base}docs/${l.slug}`}
-                  class="block rounded-md px-3 py-2 text-sm font-medium text-primary-700
-                         hover:bg-primary-200 transition-colors"
-                >
-                  {l.title}
-                </a>
-              ))}
+          {sidebarSections.map((section, idx) => (
+            <div class="mb-2 sidebar-section">
+              <button
+                class="sidebar-toggle flex items-center justify-between w-full text-xs font-semibold uppercase tracking-wider text-primary-400 mt-3 mb-1 px-3 py-1 rounded hover:bg-primary-100 transition-colors cursor-pointer"
+                data-section={idx}
+                aria-expanded="true"
+              >
+                <span>{section.label}</span>
+                <svg class="toggle-arrow w-3.5 h-3.5 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div class="sidebar-items" data-section-items={idx}>
+                {section.items.map((l) => (
+                  <a
+                    href={`${base}docs/${l.slug}`}
+                    class="block rounded-md px-3 py-2 text-sm font-medium text-primary-700
+                           hover:bg-primary-200 transition-colors"
+                  >
+                    {l.title}
+                  </a>
+                ))}
+              </div>
             </div>
           ))}
         </nav>
@@ -126,6 +135,7 @@ const sidebarSections = [
     </button>
 
     <script is:inline>
+      /* Mobile menu */
       const btn = document.getElementById('menu-toggle');
       const sidebar = document.getElementById('sidebar');
       btn?.addEventListener('click', () => {
@@ -134,6 +144,19 @@ const sidebarSections = [
         sidebar?.classList.toggle('inset-0');
         sidebar?.classList.toggle('z-40');
         sidebar?.classList.toggle('w-full');
+      });
+
+      /* Collapsible sidebar sections */
+      document.querySelectorAll('.sidebar-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          const idx = toggle.getAttribute('data-section');
+          const items = document.querySelector(`[data-section-items="${idx}"]`);
+          if (!items) return;
+          const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          items.style.display = isOpen ? 'none' : '';
+          toggle.querySelector('.toggle-arrow').style.transform = isOpen ? 'rotate(-90deg)' : '';
+        });
       });
     </script>
   </body>
