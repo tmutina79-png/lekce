@@ -2,7 +2,7 @@
   /**
    * examples: Array<{ id: string; title: string; assignment: string; hint?: string; steps?: string[]; images?: Array<{ label?: string; src: string; alt?: string }> }>
    */
-  let { examples = [] } = $props();
+  let { examples = [], pdfTitle = 'Pracovní list' } = $props();
 
   let selected = $state(new Set());
 
@@ -73,7 +73,7 @@
       return origin + base + src;
     };
 
-    const docTitle = 'Úměrnost – Pracovní list';
+    const docTitle = pdfTitle;
     const singleClass = chosen.length === 1 ? 'single-problem' : '';
 
     const imagesHtml = (imgs) => {

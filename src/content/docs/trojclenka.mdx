@@ -1,0 +1,234 @@
+---
+title: "Trojčlenka"
+description: "Trojčlenka – spolehlivý postup na výpočet přímé i nepřímé úměrnosti. Teorie, příklady a kvízy pro tercii."
+order: 3.5
+---
+
+import SelfCheck from '../../components/SelfCheck.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+# Trojčlenka
+
+> **Klíčová otázka:** Jak z jedné známé dvojice veličin spočítáš neznámou hodnotu? Trojčlenka ti to zvládne ve třech krocích!
+
+---
+
+## 1. Co je trojčlenka?
+
+Trojčlenka je **univerzální metoda** pro řešení úloh na přímou i nepřímou úměrnost. Název pochází z toho, že ze **tří známých údajů** vypočítáme **čtvrtý neznámý**.
+
+> 💡 **Trojčlenka = tři členy známe, čtvrtý hledáme.**
+
+### Kdy ji použiješ?
+
+- Kdykoli máš **dvě veličiny**, které jsou ve vztahu úměrnosti.
+- Znáš **jednu kompletní dvojici** (např. 3 sešity za 45 Kč) a **jednu hodnotu** z druhé dvojice (7 sešitů).
+- Hledáš tu **chybějící čtvrtou hodnotu**.
+
+<SelfCheck client:load id="trojclenka-co-je" label="Vím, co je trojčlenka a kdy ji použít." />
+
+---
+
+## 2. Postup trojčlenky — 3 kroky
+
+### Krok 1: Zapiš údaje pod sebe
+
+Zapiš známou dvojici a pod ni neznámou:
+
+$$
+\text{známá hodnota}_1 \quad \ldots \quad \text{známá hodnota}_2
+$$
+$$
+\text{známá hodnota}_3 \quad \ldots \quad x
+$$
+
+### Krok 2: Urči typ úměrnosti
+
+Polož si otázku:
+
+| Otázka | Odpověď |
+|:-------|:--------|
+| Když **první veličina roste**, roste i druhá? | → **Přímá** úměrnost |
+| Když **první veličina roste**, druhá klesá? | → **Nepřímá** úměrnost |
+
+### Krok 3: Vyřeš rovnici
+
+**Přímá úměrnost** — zapíšeme úměru (poměry jsou stejné):
+
+$$
+\frac{a_1}{b_1} = \frac{a_2}{x} \qquad \Rightarrow \qquad x = \frac{a_2 \cdot b_1}{a_1}
+$$
+
+**Nepřímá úměrnost** — součiny jsou stejné:
+
+$$
+a_1 \cdot b_1 = a_2 \cdot x \qquad \Rightarrow \qquad x = \frac{a_1 \cdot b_1}{a_2}
+$$
+
+<SelfCheck client:load id="trojclenka-postup" label="Znám tři kroky trojčlenky a umím rozlišit přímou a nepřímou úměrnost." />
+
+---
+
+## 3. Příklad — přímá úměrnost
+
+> 🛒 **3 sešity** stojí **45 Kč**. Kolik stojí **7 sešitů**?
+
+**Krok 1 — Zápis:**
+
+$$
+3 \text{ sešity} \quad \ldots \quad 45 \text{ Kč}
+$$
+$$
+7 \text{ sešitů} \quad \ldots \quad x \text{ Kč}
+$$
+
+**Krok 2 — Typ:** Více sešitů → vyšší cena → **přímá** úměrnost ✅
+
+**Krok 3 — Výpočet:**
+
+$$
+\frac{45}{3} = \frac{x}{7}
+$$
+
+$$
+3x = 45 \cdot 7 = 315
+$$
+
+$$
+x = \frac{315}{3} = \boxed{105 \text{ Kč}}
+$$
+
+<SelfCheck client:load id="trojclenka-prima-priklad" label="Umím vyřešit trojčlenku na přímou úměrnost." />
+
+---
+
+## 4. Příklad — nepřímá úměrnost
+
+> 🎨 **4 malíři** natřou plot za **6 dní**. Za kolik dní to zvládnou **3 malíři**?
+
+**Krok 1 — Zápis:**
+
+$$
+4 \text{ malíři} \quad \ldots \quad 6 \text{ dní}
+$$
+$$
+3 \text{ malíři} \quad \ldots \quad x \text{ dní}
+$$
+
+**Krok 2 — Typ:** Méně malířů → více dní → **nepřímá** úměrnost ✅
+
+**Krok 3 — Výpočet:**
+
+$$
+4 \cdot 6 = 3 \cdot x
+$$
+
+$$
+24 = 3x
+$$
+
+$$
+x = \frac{24}{3} = \boxed{8 \text{ dní}}
+$$
+
+<SelfCheck client:load id="trojclenka-neprima-priklad" label="Umím vyřešit trojčlenku na nepřímou úměrnost." />
+
+---
+
+## 5. Jak poznat typ úměrnosti — shrnutí
+
+| Situace | Typ | Pravidlo |
+|:--------|:----|:---------|
+| Více zboží → vyšší cena | **Přímá** | $\frac{a_1}{b_1} = \frac{a_2}{x}$ |
+| Více porcí → více ingrediencí | **Přímá** | poměry jsou stejné |
+| Více dělníků → kratší doba | **Nepřímá** | $a_1 \cdot b_1 = a_2 \cdot x$ |
+| Vyšší rychlost → kratší čas | **Nepřímá** | součiny jsou stejné |
+| Více hadic → rychleji naplníme | **Nepřímá** | součiny jsou stejné |
+
+> ⚠️ **Častá chyba:** Zaměnit typ úměrnosti. Vždy se ptej: „Když první veličina roste, co dělá druhá?"
+
+<SelfCheck client:load id="trojclenka-typy" label="Umím spolehlivě rozpoznat přímou a nepřímou úměrnost." />
+
+---
+
+## 6. Příklady z praxe
+
+| Úloha | Typ | Výpočet | Výsledek |
+|:------|:----|:--------|:---------|
+| 5 h brigády = 625 Kč. Kolik za 8 h? | Přímá | $x = \frac{625 \cdot 8}{5}$ | **1 000 Kč** |
+| Auto 80 km/h → 3 h. Kolik při 60 km/h? | Nepřímá | $x = \frac{80 \cdot 3}{60}$ | **4 hodiny** |
+| 150 km → 12 l benzínu. Kolik na 350 km? | Přímá | $x = \frac{12 \cdot 350}{150}$ | **28 litrů** |
+| Zásoby pro 20 dětí na 15 dní. Pro 25 dětí? | Nepřímá | $x = \frac{20 \cdot 15}{25}$ | **12 dní** |
+
+<SelfCheck client:load id="trojclenka-praxe" label="Zvládám řešit trojčlenku v praktických úlohách." />
+
+---
+
+## 7. Procvičování
+
+> 📝 **Pracovní list:** Pokračuj na stránku **[Příklady – Trojčlenka](/docs/trojclenka/priklady)** s 10 příklady, nápovědami a postupem krok za krokem.
+
+---
+
+## 📖 Slovník pojmů
+
+<div class="overflow-x-auto my-6">
+
+| Pojem | Anglicky | Definice |
+|:------|:---------|:---------|
+| **Trojčlenka** | *rule of three* | Metoda výpočtu čtvrté neznámé ze tří známých hodnot |
+| **Přímá úměrnost** | *direct proportion* | Obě veličiny rostou / klesají společně |
+| **Nepřímá úměrnost** | *inverse proportion* | Jedna roste, druhá klesá |
+| **Úměra** | *proportion* | Rovnost dvou poměrů |
+| **Křížové násobení** | *cross multiplication* | Metoda řešení úměry: $a/b = c/d \Rightarrow a \cdot d = b \cdot c$ |
+| **Koeficient** | *coefficient* | Konstanta $k$ ve vzorci úměrnosti |
+
+</div>
+
+<SelfCheck client:load id="trojclenka-slovnik" label="Prošel/prošla jsem slovník pojmů." />
+
+---
+
+## ✅ Celkový self-check
+
+<SelfCheck client:load id="trojclenka-celkovy" label="Lekci o trojčlence mám za sebou – jdu na kvíz!" />
+
+---
+
+## 📝 Kvízy
+
+<Quiz
+  client:load
+  questions={[
+    {
+      question: "5 kg jablek stojí 150 Kč. Kolik stojí 8 kg?",
+      options: ["200 Kč", "240 Kč", "280 Kč", "300 Kč"],
+      correct: 1
+    },
+    {
+      question: "3 dělníci vykopou jámu za 12 hodin. Za kolik hodin ji vykopou 4 dělníci?",
+      options: ["16 hodin", "9 hodin", "8 hodin", "6 hodin"],
+      correct: 1
+    },
+    {
+      question: "Jak poznáš, že jde o nepřímou úměrnost?",
+      options: [
+        "Obě veličiny rostou současně",
+        "Podíl veličin je konstantní",
+        "Jedna veličina roste a druhá klesá",
+        "Obě veličiny jsou kladné"
+      ],
+      correct: 2
+    },
+    {
+      question: "200 km autem při 100 km/h trvá 2 h. Jak dlouho při 80 km/h?",
+      options: ["1,5 hodiny", "2,5 hodiny", "3 hodiny", "1,6 hodiny"],
+      correct: 1
+    },
+    {
+      question: "Na 6 porcí koláče potřebuji 300 g mouky. Kolik na 10 porcí?",
+      options: ["400 g", "450 g", "500 g", "550 g"],
+      correct: 2
+    }
+  ]}
+/>
