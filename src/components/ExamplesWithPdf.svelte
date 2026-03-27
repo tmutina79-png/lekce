@@ -6,11 +6,14 @@
 
   let selected = $state(new Set());
 
-  // Per-example revealed step count (step-by-step disclosure)
+  // Per-example hint visibility
+  let hintOpen = $state(
+    Object.fromEntries(examples.map((ex) => [ex.id, false]))
+  );
+
+  // Per-example revealed step count (0 = closed, 1+ = open with N steps shown)
   let revealed = $state(
-    Object.fromEntries(
-      examples.map((ex) => [ex.id, Math.min(1, (ex.steps ?? []).length)])
-    )
+    Object.fromEntries(examples.map((ex) => [ex.id, 0]))
   );
 
   function toggleSelected(id) {
@@ -32,6 +35,15 @@
     return revealed[id] ?? 0;
   }
 
+  function toggleHint(id) {
+    hintOpen = { ...hintOpen, [id]: !hintOpen[id] };
+  }
+
+  function toggleSteps(id) {
+    const current = revealedCount(id);
+    revealed = { ...revealed, [id]: current === 0 ? 1 : 0 };
+  }
+
   function nextStep(id) {
     const total = totalCount(id);
     const current = revealedCount(id);
@@ -40,8 +52,7 @@
   }
 
   function resetSteps(id) {
-    const total = totalCount(id);
-    revealed = { ...revealed, [id]: Math.min(1, total) };
+    revealed = { ...revealed, [id]: 1 };
   }
 
   function openPrintableWindow(selectedIds) {
@@ -185,41 +196,62 @@
       {/if}
 
       {#if ex.hint}
-        <details class="ex-details">
-          <summary class="ex-summary">💡 Nápověda</summary>
-          <div class="ex-details-body">{ex.hint}</div>
-        </details>
+        <div class="hint-section">
+          <button class="hint-btn" onclick={() => toggleHint(ex.id)}>
+            <span class="hint-btn-inner">
+              <span class="hint-icon">💡</span>
+              <span class="hint-label">Nápověda</span>
+              <svg class="chevron" class:chevron-open={hintOpen[ex.id]} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+          {#if hintOpen[ex.id]}
+            <div class="hint-content">{ex.hint}</div>
+          {/if}
+        </div>
       {/if}
 
       {#if ex.steps && ex.steps.length}
-        <details class="ex-details">
-          <summary class="ex-summary">📝 Postup řešení ({revealedCount(ex.id)}/{totalCount(ex.id)} kroků)</summary>
+        <div class="steps-section">
+          <button class="steps-btn" onclick={() => toggleSteps(ex.id)}>
+            <span class="steps-btn-inner">
+              <span class="steps-icon">📝</span>
+              <span class="steps-label">Postup řešení ({revealedCount(ex.id)}/{totalCount(ex.id)} kroků)</span>
+              <svg class="chevron" class:chevron-open={revealedCount(ex.id) > 0} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
 
-          <ol class="steps">
-            {#each ex.steps.slice(0, revealedCount(ex.id)) as step}
-              <li class="step"><span class="step-text">{step}</span></li>
-            {/each}
-          </ol>
+          {#if revealedCount(ex.id) > 0}
+            <div class="steps-content">
+              {#each ex.steps.slice(0, revealedCount(ex.id)) as step, si}
+                <div class="step-item" class:step-new={si === revealedCount(ex.id) - 1 && si > 0}>
+                  <span class="step-number">{si + 1}</span>
+                  <span class="step-text">{step}</span>
+                </div>
+              {/each}
 
-          <div class="step-actions">
-            <button
-              type="button"
-              class="step-btn"
-              onclick={() => nextStep(ex.id)}
-              disabled={revealedCount(ex.id) >= totalCount(ex.id)}
-            >
-              ➕ Další krok
-            </button>
-            <button
-              type="button"
-              class="step-btn step-btn-secondary"
-              onclick={() => resetSteps(ex.id)}
-              disabled={revealedCount(ex.id) <= 1}
-            >
-              ↩︎ Zpět na 1. krok
-            </button>
-          </div>
-        </details>
+              <div class="step-actions">
+                {#if revealedCount(ex.id) < totalCount(ex.id)}
+                  <button class="btn-next" onclick={() => nextStep(ex.id)}>
+                    <span>Další krok</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                {:else}
+                  <div class="complete-badge">✅ Kompletní řešení</div>
+                {/if}
+
+                {#if revealedCount(ex.id) > 1}
+                  <button class="btn-reset" onclick={() => resetSteps(ex.id)}>↩️ Od začátku</button>
+                {/if}
+              </div>
+            </div>
+          {/if}
+        </div>
       {/if}
     </section>
   {/each}
@@ -356,69 +388,164 @@
     white-space: pre-line;
   }
 
-  .ex-details {
+  /* ===== Hint section (amber theme) ===== */
+  .hint-section {
     margin-top: 10px;
-    border: 1px solid var(--color-primary-200);
-    border-radius: 10px;
-    overflow: hidden;
-    background: #fff;
-    display: inline-block;
-    max-width: 80%;
   }
-  .ex-summary {
+  .hint-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
     cursor: pointer;
-    padding: 7px 12px;
-    font-weight: 800;
-    font-size: 0.82rem;
-    color: var(--color-primary-700);
-    background: var(--color-primary-50);
-    list-style: none;
+    transition: background 0.15s;
+    font-family: inherit;
   }
-  .ex-summary::-webkit-details-marker { display: none; }
-  .ex-details-body {
-    padding: 10px 12px;
-    color: var(--color-primary-900);
-    line-height: 1.55;
+  .hint-btn:hover { background: #fef3c7; }
+  .hint-btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .hint-icon { color: #d97706; }
+  .hint-label { font-weight: 600; color: #92400e; }
+  .chevron {
+    width: 1rem; height: 1rem;
+    margin-left: auto;
+    color: #d97706;
+    transition: transform 0.2s;
+  }
+  .chevron-open { transform: rotate(180deg); }
+  .hint-content {
+    padding: 0.75rem 1rem;
+    margin-top: 0.25rem;
+    background: #fffbeb;
+    border-left: 4px solid #fbbf24;
+    border-radius: 0 8px 8px 0;
+    color: #78350f;
+    line-height: 1.6;
     white-space: pre-line;
   }
 
-  .steps {
-    margin: 0;
-    padding: 10px 14px 12px 30px;
+  /* ===== Steps section (blue theme) ===== */
+  .steps-section {
+    margin-top: 10px;
   }
-  .step { margin: 0 0 6px; }
-  .step-text { color: var(--color-primary-900); line-height: 1.5; }
+  .steps-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+  .steps-btn:hover { background: #dbeafe; }
+  .steps-btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .steps-icon { color: #2563eb; }
+  .steps-label { font-weight: 600; color: #1e40af; }
+  .steps-btn .chevron { color: #2563eb; }
+
+  .steps-content {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: #eff6ff;
+    border-left: 4px solid #60a5fa;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .step-new {
+    border-left-color: #2563eb;
+    background: #dbeafe;
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-text {
+    color: #1e3a8a;
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
 
   .step-actions {
     display: flex;
-    gap: 10px;
-    padding: 0 12px 12px;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
     flex-wrap: wrap;
+    align-items: center;
   }
 
-  .step-btn {
-    border-radius: 12px;
-    padding: 8px 12px;
-    border: 1px solid var(--color-primary-200);
-    background: #fff;
-    color: var(--color-primary-800);
-    font-weight: 800;
+  .btn-next {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .btn-next:hover { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
+  .btn-arrow { width: 1rem; height: 1rem; }
+
+  .complete-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #dcfce7;
+    color: #166534;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
   }
 
-  .step-btn:hover {
-    border-color: var(--color-primary-400);
-    background: var(--color-primary-50);
+  .btn-reset {
+    padding: 0.5rem 1rem;
+    background: #e5e7eb;
+    color: #374151;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
   }
-
-  .step-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .step-btn-secondary {
-    color: var(--color-primary-700);
-  }
+  .btn-reset:hover { background: #d1d5db; }
 
   /* ===== PDF Generator section (reference design) ===== */
   .pdf-gen {
